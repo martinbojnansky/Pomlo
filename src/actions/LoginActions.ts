@@ -3,10 +3,10 @@ import { ThunkAction } from 'redux-thunk';
 import { StoreState } from 'states/StoreState';
 import { ActionType } from 'actions/Actions';
 import { Routes } from 'constants/Routes';
-import { LocalStorageKeys } from 'constants/LocalStorageKeys';
-import { history } from 'services/History';
+import { navigation } from 'services/Navigation';
 import firebase from 'services/Firebase';
 import { UserInfo } from 'firebase';
+import currentUser from 'services/CurrentUser';
 
 export interface LoginCompleted {
     type: ActionType.LOGIN_COMPLETED
@@ -22,16 +22,16 @@ export const loginWithGoogle: ActionCreator<ThunkAction<Promise<LoginCompleted |
     return async (dispatch: Dispatch<StoreState>, getState: () => StoreState, params): Promise<LoginCompleted | LoginFailed> => {        
         try {
             let user = await firebase.loginWithGoogle();
-            localStorage.setItem(LocalStorageKeys.AUTHORIZED_USER, JSON.stringify(user.user as UserInfo));
-            history.push(Routes.DEFAULT);
+            currentUser.set(user.user as UserInfo);
+            navigation.push(Routes.DEFAULT);
             return dispatch({
                 type: ActionType.LOGIN_COMPLETED,
                 user: user.user
             } as LoginCompleted);
         }
         catch(error) {
-            localStorage.removeItem(LocalStorageKeys.AUTHORIZED_USER);
-            alert('Login failed.');
+            currentUser.reset();
+            alert(`Login failed with message: ${error.message}.`);
             return dispatch({
                 type: ActionType.LOGIN_FAILED,
             } as LoginFailed);

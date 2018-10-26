@@ -1,18 +1,18 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
-import { history } from 'services/History';
+import { navigation } from 'services/Navigation';
 import { reducers } from 'reducers/Reducers';
 import { StoreState, initialState } from 'states/StoreState';
 
 const middleware = 
 [
   require('redux-thunk').default, 
-  routerMiddleware(history)
+  routerMiddleware(navigation)
 ];
 
 export function getStore() {
   return createStore<StoreState>(
-  connectRouter(history)(reducers),
+  connectRouter(navigation)(reducers),
   initialState(),
   compose(
       applyMiddleware(...middleware),

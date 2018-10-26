@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Route, Redirect } from 'react-router';
 import { Routes } from 'constants/Routes';
-import { LocalStorageKeys } from 'constants/LocalStorageKeys';
-import { history } from 'services/History';
+import { navigation } from 'services/Navigation';
+import currentUser from 'services/CurrentUser';
 import firebase from 'services/Firebase';
 
 const renderAuthorizedRouteComponent = (props: {}) => (Component: any) => {
@@ -10,13 +10,13 @@ const renderAuthorizedRouteComponent = (props: {}) => (Component: any) => {
         componentDidMount() {
             firebase.auth().onAuthStateChanged(user => {
                 if (!user) {
-                    history.push(Routes.LOGIN);
+                    navigation.push(Routes.LOGIN);
                 }
             });
         }
 
         render() {
-            let isAuthorized = localStorage.getItem(LocalStorageKeys.AUTHORIZED_USER) !== undefined;
+            let isAuthorized = currentUser.get() !== null;
             return (
                 isAuthorized ? <Component {...props}/> : <Redirect to={{ pathname: Routes.LOGIN}}/>
             );

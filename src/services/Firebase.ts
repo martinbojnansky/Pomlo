@@ -13,7 +13,7 @@ if (!firebase.apps.length) {
     firebase.initializeApp(config); 
 }
 
-const ref = () => firebase.database().ref();
+const db = () => firebase.firestore();
 const auth = () => firebase.auth();
 const googleAuthProvider = () => new firebase.auth.GoogleAuthProvider();
 
@@ -21,7 +21,7 @@ const loginWithGoogle = () => auth().signInWithPopup(googleAuthProvider());
 const logout = () => auth().signOut();
 
 export default {
-    ref,
+    db,
     auth,
     loginWithGoogle,
     logout
