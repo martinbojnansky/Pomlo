@@ -1,20 +1,19 @@
 import * as React from 'react';
 import { StoreState } from 'states/StoreState';
-
-import * as loginActions from 'actions/LoginActions';
+import { Action } from 'actions/Actions';
 
 export interface LoginComponentProps {
 }
 
 export interface LoginComponentDispatch {
-    loginWithGoogle: () => Promise<loginActions.LoginCompleted | loginActions.LoginFailed>
+    loginWithGoogle: () => Promise<Action>
 }
 
 export class LoginComponent extends React.Component<LoginComponentProps & LoginComponentDispatch, StoreState> {
     render() {
         return (
             <div>
-                <h1>Pomlo</h1>
+                <h2>Pomlo</h2>
                 <button 
                     type="button"
                     onClick={this.props.loginWithGoogle}

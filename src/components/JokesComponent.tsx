@@ -1,14 +1,13 @@
 import * as React from 'react';
 import { StoreState } from 'states/StoreState';
-
-import * as jokesActions from 'actions/JokesActions';
+import { Action } from 'actions/Actions';
 
 export interface JokesComponentProps {
     joke: string
 }
 
 export interface JokesComponentDispatch {
-    loadJoke: () => Promise<jokesActions.LoadJokeAction>
+    loadJoke: () => Promise<Action>
 }
 
 export class JokesComponent extends React.Component<JokesComponentProps & JokesComponentDispatch, StoreState> {

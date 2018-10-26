@@ -1,0 +1,24 @@
+@import "../_global.scss";
+
+.appbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: $border-width solid $border-color;
+
+    &-userinfo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        * {
+            margin-left: $padding-default;
+        }
+
+        img {
+            height: 30px;
+            border-radius: 50%;
+        }
+    }
+}

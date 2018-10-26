@@ -6,6 +6,7 @@ import { Routes } from 'constants/Routes';
 import { LocalStorageKeys } from 'constants/LocalStorageKeys';
 import { history } from 'services/History';
 import firebase from 'services/Firebase';
+import { UserInfo } from 'firebase';
 
 export interface LoginCompleted {
     type: ActionType.LOGIN_COMPLETED
@@ -21,7 +22,7 @@ export const loginWithGoogle: ActionCreator<ThunkAction<Promise<LoginCompleted |
     return async (dispatch: Dispatch<StoreState>, getState: () => StoreState, params): Promise<LoginCompleted | LoginFailed> => {        
         try {
             let user = await firebase.loginWithGoogle();
-            localStorage.setItem(LocalStorageKeys.IS_AUTHORIZED, true.toString());
+            localStorage.setItem(LocalStorageKeys.AUTHORIZED_USER, JSON.stringify(user.user as UserInfo));
             history.push(Routes.DEFAULT);
             return dispatch({
                 type: ActionType.LOGIN_COMPLETED,
@@ -29,7 +30,7 @@ export const loginWithGoogle: ActionCreator<ThunkAction<Promise<LoginCompleted |
             } as LoginCompleted);
         }
         catch(error) {
-            localStorage.setItem(LocalStorageKeys.IS_AUTHORIZED, false.toString());
+            localStorage.removeItem(LocalStorageKeys.AUTHORIZED_USER);
             alert('Login failed.');
             return dispatch({
                 type: ActionType.LOGIN_FAILED,

@@ -1,5 +1,5 @@
 import { JokesState } from "./JokesState";
-import { AuthorizationState } from "./AuthorizationState";
+import { AuthorizationState, initialAuthorizationState } from "./AuthorizationState";
 
 export interface StoreState {
   authorization: AuthorizationState,
@@ -9,16 +9,7 @@ export interface StoreState {
 export function initialState(): StoreState
 {
     return ({
-        authorization: {
-          user: {
-            displayName: '',
-            email: '',
-            phoneNumber: '',
-            photoURL: '',
-            providerId: '',
-            uid: ''       
-          }
-        },
+        authorization: initialAuthorizationState(),
         jokes: {
           joke: ""
         }

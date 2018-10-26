@@ -1,0 +1,15 @@
+.appbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc; }
+  .appbar-userinfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center; }
+    .appbar-userinfo * {
+      margin-left: 10px; }
+    .appbar-userinfo img {
+      height: 30px;
+      border-radius: 50%; }

@@ -16,7 +16,7 @@ const renderAuthorizedRouteComponent = (props: {}) => (Component: any) => {
         }
 
         render() {
-            let isAuthorized = localStorage.getItem(LocalStorageKeys.IS_AUTHORIZED) === true.toString();
+            let isAuthorized = localStorage.getItem(LocalStorageKeys.AUTHORIZED_USER) !== undefined;
             return (
                 isAuthorized ? <Component {...props}/> : <Redirect to={{ pathname: Routes.LOGIN}}/>
             );
