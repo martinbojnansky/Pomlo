@@ -1,4 +1,4 @@
 export enum LocalStorageKeys {
-    AUTH_TOKEN
+    IS_AUTHORIZED = 'IS_AUTHORIZED',
 }
 

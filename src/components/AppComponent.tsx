@@ -3,6 +3,7 @@ import { StoreState } from 'states/StoreState';
 import { Switch, Route } from 'react-router';
 import { Routes } from 'constants/Routes';
 import { AuthorizedRouteComponent } from 'components/AuthorizedRouteComponent';
+import LoginContainer from 'containers/LoginContainer';
 import LayoutContainer from 'containers/LayoutContainer';
 
 export interface AppComponentProps {
@@ -16,7 +17,7 @@ export class AppComponent extends React.Component<AppComponentProps & AppCompone
     return (
       <div className="app"> 
         <Switch>
-          <Route path={Routes.LOGIN} />
+          <Route path={Routes.LOGIN} component={LoginContainer} />
           <AuthorizedRouteComponent path={Routes.DEFAULT} component={LayoutContainer} /> 
         </Switch>
       </div>

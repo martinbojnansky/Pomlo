@@ -5,6 +5,7 @@ import { Routes } from 'constants/Routes';
 import JokesContainer from 'containers/JokesContainer';
 
 export interface LayoutComponentProps {
+    user: firebase.UserInfo
 }
 
 export interface LayoutComponentDispatch {
@@ -14,7 +15,15 @@ export class LayoutComponent extends React.Component<LayoutComponentProps & Layo
     render() {
         return (
             <div className="layout">
-                <nav></nav>
+                <header>
+                    <h1>Pomlo</h1>
+                    <span>
+                        <b>{this.props.user.displayName}</b>
+                        <button>
+                            Logout
+                        </button>
+                    </span>
+                </header>
                 <main>
                     <Switch>
                         <Redirect exact={true} path={Routes.DEFAULT} to={Routes.JOKES} />

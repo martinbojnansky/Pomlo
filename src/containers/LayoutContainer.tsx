@@ -4,6 +4,7 @@ import { LayoutComponent, LayoutComponentProps, LayoutComponentDispatch } from '
 
 export function mapStateToProps(state: StoreState): LayoutComponentProps {
   return {
+    user: state.authorization.user
   };
 }
 
@@ -12,4 +13,4 @@ export function mapDispatchToProps(dispatch: Dispatch<StoreState>): LayoutCompon
   };
 }
 
-export default connect(undefined, mapDispatchToProps)(LayoutComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(LayoutComponent);
