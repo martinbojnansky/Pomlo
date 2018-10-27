@@ -2,6 +2,7 @@ import * as React from 'react';
 import { StoreState } from 'states/StoreState';
 import { Action } from 'actions/Actions';
 import { Task } from 'models/Task';
+import { WeekViewItemComponent } from './WeekViewItemComponent';
 
 export interface WeekViewComponentProps {
     tasks: Task[];
@@ -19,20 +20,29 @@ export class WeekViewComponent extends React.Component<WeekViewComponentProps & 
     render() {
         return (
             <div className="weekview">
-                {this.props.tasks.map((task) => {
-                    return (
-                        <div key={task.id}>
-                            <label>
-                                <input type="checkbox" readOnly={true} checked={task.completed}/>
-                                <b>{task.name}</b>
-                            </label>
-                            <br/>
-                            {/* <span>{task.date}</span> */}
-                            <span>{task.description}</span>
-                        </div>
-                    );
-                })}
+                <WeekViewItemComponent 
+                    name="Monday"
+                    tasks={this.props.tasks}/>
+                <WeekViewItemComponent 
+                    name="Tuesday"
+                    tasks={this.props.tasks}/>
+                <WeekViewItemComponent 
+                    name="Wednesday"
+                    tasks={this.props.tasks}/>
+                <WeekViewItemComponent 
+                    name="Thursday"
+                    tasks={this.props.tasks}/>
+                <WeekViewItemComponent 
+                    name="Friday"
+                    tasks={this.props.tasks}/>
+                <WeekViewItemComponent 
+                    name="Saturday"
+                    tasks={this.props.tasks}/>
+                <WeekViewItemComponent 
+                    name="Sunday"
+                    tasks={this.props.tasks}/>
             </div>
+            
         );
     }
 }
