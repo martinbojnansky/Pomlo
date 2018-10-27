@@ -3,11 +3,8 @@
 .weekview-item {
     display: flex;
     flex-direction: column;
-    flex: 0 0 16rem;
-
-    &:not(:last-child) {
-        border-right: $border;
-    }
+    flex: 0 0 18rem;
+    border-right: $border;
 
     &-header {
         flex: 0 0 auto;

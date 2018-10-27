@@ -3,22 +3,29 @@
 .task-card {
     display: flex;
     flex-direction: column;
-    flex: 0 0 auto;
-    padding: $padding-md;   
+    flex: 0 0 auto; 
     border: $border;  
 
-    > label {
-        display: flex;
-        align-items: center;
+    &-body {
+        padding: $padding-md;  
 
-        input[type=checkbox] {
-            width: 20px;
-            height: 20px;
-            margin-right: $padding-md;
+        > label {
+            display: flex;
+            align-items: center;
+    
+            input[type=checkbox] {
+                width: 20px;
+                height: 20px;
+                margin-right: $padding-md;
+            }
+        }
+    
+        > span {
+            margin-top: $padding-md;
         }
     }
 
-    > span {
-        margin-top: $padding-md;
+    &-footer {
+        border-top: $border;    
     }
 }
