@@ -20,7 +20,8 @@ const uid = () => {
         return user.uid;
     }
     else {
-        throw new Error("Couldn't get uid because no user is logged in.");
+        return '';
+        // throw new Error("Couldn't get uid because no user is logged in.");
     }
 }
 

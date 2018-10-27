@@ -1,1 +1,19 @@
 @import "../_global.scss";
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+}
+
+body {
+    padding: $padding-md;
+}
+
+#root, .app, .layout {
+    height: 100%;
+}

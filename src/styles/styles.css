@@ -1,3 +1,31 @@
+* {
+  box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; }
+
+body {
+  padding: 10px; }
+
+#root, .app, .layout {
+  height: 100%; }
+
+.app {
+  display: flex;
+  flex-direction: column; }
+
+.layout {
+  display: flex;
+  flex-direction: column; }
+  .layout > header {
+    flex: 0 0 auto; }
+  .layout > main {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto; }
+
 .appbar {
   display: flex;
   flex-direction: row;
@@ -9,7 +37,29 @@
     flex-direction: row;
     align-items: center; }
     .appbar-userinfo * {
-      margin-left: 10px; }
+      margin-left: 15px; }
     .appbar-userinfo img {
       height: 30px;
-      border-radius: 50%; }
+      border-radius: 50%;
+      border: 1px solid #ccc; }
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 20rem;
+  max-width: 100vw;
+  margin-top: 25px;
+  padding: 25px;
+  border: 1px solid #ccc;
+  text-align: center; }
+  .login > h2 {
+    align-self: center;
+    border-bottom: 1px solid #ccc; }
+  .login button {
+    width: 100%; }
+
+.weekview {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 auto; }

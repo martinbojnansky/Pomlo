@@ -31,7 +31,7 @@ export const loginWithGoogle: ActionCreator<ThunkAction<Promise<LoginCompleted |
         }
         catch(error) {
             currentUser.reset();
-            alert(`Login failed with message: ${error.message}.`);
+            alert(`Oops! Login failed :(`);
             return dispatch({
                 type: ActionType.LOGIN_FAILED,
             } as LoginFailed);

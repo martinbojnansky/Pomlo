@@ -12,14 +12,17 @@ export interface LoginComponentDispatch {
 export class LoginComponent extends React.Component<LoginComponentProps & LoginComponentDispatch, StoreState> {
     render() {
         return (
-            <div>
+            <div className="login">
                 <h2>Pomlo</h2>
-                <button 
-                    type="button"
-                    onClick={this.props.loginWithGoogle}
-                    >
-                    Login with Google
-                </button>
+                <p>Login</p>
+                <p>
+                    <button 
+                        type="button"
+                        onClick={this.props.loginWithGoogle}
+                        >
+                        Google
+                    </button>
+                </p>
             </div>
         );
     }

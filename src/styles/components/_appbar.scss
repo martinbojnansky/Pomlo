@@ -5,7 +5,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border-bottom: $border-width solid $border-color;
+    border-bottom: $border;
 
     &-userinfo {
         display: flex;
@@ -13,12 +13,13 @@
         align-items: center;
 
         * {
-            margin-left: $padding-default;
+            margin-left: $padding-lg;
         }
 
         img {
             height: 30px;
             border-radius: 50%;
+            border: $border;
         }
     }
 }
