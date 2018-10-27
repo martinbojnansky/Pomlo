@@ -1,5 +1,4 @@
 export enum Routes {
     DEFAULT = '/',
-    LOGIN = '/login',
-    JOKES = '/jokes'
+    LOGIN = '/login'
 }

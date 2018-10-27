@@ -1,6 +1,6 @@
 import * as login from './LoginActions';
 import * as appBar from './AppBarActions';
-import * as jokes from './JokesActions';
+import * as weekView from './WeekViewActions';
 
 export enum ActionType {
     NOT_SPECIFIED = 'NOT_SPECIFIED',
@@ -8,7 +8,8 @@ export enum ActionType {
     LOGIN_COMPLETED = 'LOGIN_COMPLETED',
     LOGIN_FAILED = 'LOGIN_FAILED',
     APPBAR_LOGOUT_COMPLETED = 'APPBAR_LOGOUT_COMPLETED',
-    JOKES_LOAD_JOKE = 'JOKES_LOAD_JOKE'
+    WEEKVIEW_LOADTASKS_COMPLETED = 'WEEKVIEW_LOADTASKS_COMPLETED',
+    WEEKVIEW_LOADTASKS_FAILED = 'WEEKVIEW_LOADTASKS_FAILED',
 }
 
 export type Action = NotSpecifiedAction
@@ -16,7 +17,8 @@ export type Action = NotSpecifiedAction
 | login.LoginCompleted
 | login.LoginFailed
 | appBar.AppBarLogoutCompleted
-| jokes.LoadJokeAction
+| weekView.WeekViewLoadTasksCompleted
+| weekView.WeekViewLoadTasksFailed
 ;
 
 export interface NotSpecifiedAction {

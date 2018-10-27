@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { Switch, Redirect, Route } from 'react-router';
+import { Switch, Route } from 'react-router';
 import { StoreState } from 'states/StoreState';
 import { Routes } from 'constants/Routes';
 import AppBarContainer from 'containers/AppBarContainer';
-import JokesContainer from 'containers/JokesContainer';
+import WeekViewContainer from 'containers/WeekViewContainer';
 
 export interface LayoutComponentProps {
     user: firebase.UserInfo
@@ -19,8 +19,7 @@ export class LayoutComponent extends React.Component<LayoutComponentProps & Layo
                 <AppBarContainer/>
                 <main>
                     <Switch>
-                        <Redirect exact={true} path={Routes.DEFAULT} to={Routes.JOKES} />
-                        <Route path={Routes.JOKES} component={JokesContainer} /> 
+                        <Route path={Routes.DEFAULT} component={WeekViewContainer} /> 
                     </Switch> 
                 </main>
             </div>

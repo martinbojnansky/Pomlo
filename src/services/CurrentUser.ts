@@ -14,8 +14,19 @@ const reset = () => {
     localStorage.removeItem(LocalStorageKeys.AUTHORIZED_USER);
 }
 
+const uid = () => {
+    let user = get();
+    if(user) {
+        return user.uid;
+    }
+    else {
+        throw new Error("Couldn't get uid because no user is logged in.");
+    }
+}
+
 export default {
     get,
     set,
-    reset
+    reset,
+    uid
 }

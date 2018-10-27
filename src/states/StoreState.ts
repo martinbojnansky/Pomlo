@@ -1,17 +1,17 @@
-import { JokesState } from "./JokesState";
 import { AuthorizationState, initialAuthorizationState } from "./AuthorizationState";
+import { TasksState } from "./TasksState";
 
 export interface StoreState {
   authorization: AuthorizationState,
-  jokes: JokesState
+  tasks: TasksState
 }
 
 export function initialState(): StoreState
 {
     return ({
         authorization: initialAuthorizationState(),
-        jokes: {
-          joke: ""
+        tasks: {
+          tasks: []
         }
     });
 };
