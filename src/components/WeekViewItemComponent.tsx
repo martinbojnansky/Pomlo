@@ -18,6 +18,9 @@ export class WeekViewItemComponent extends React.Component<WeekViewItemComponent
             <div className="weekview-item">
                 <div className="weekview-item-header">
                     <p>{this.props.name}</p>
+                    <button title="Add Task">
+                        +
+                    </button>
                 </div>
                 <div className="weekview-item-list">
                     {this.props.tasks.map((task) => {

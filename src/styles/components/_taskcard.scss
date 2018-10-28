@@ -5,19 +5,23 @@
     flex-direction: column;
     flex: 0 0 auto; 
     border: $border;
+    background: $color-background;
+    border-radius: $border-radius;
 
     &:hover {
-        background-color: $color-background-medium;
+        background-color: $color-task-default_hover;
         cursor: pointer;
     }
 
     &-body {
+        display: flex;
+        flex-direction: column;
         padding: $padding-md;  
+        border-left: 4*$border-width $border-style $color-task-default;
 
         > label {
             display: flex;
             align-items: center;
-            color: blue;
     
             input[type=checkbox] {
                 margin-right: $padding-md;

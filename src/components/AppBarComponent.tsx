@@ -14,16 +14,16 @@ export class AppBarComponent extends React.Component<AppBarComponentProps & AppB
     render() {
         return (
             <header className="appbar">
-                <h2>Pomlo</h2>
                 <div className="appbar-userinfo">
                     <img src={this.props.user.photoURL ? this.props.user.photoURL : ""} />
                     <span>{this.props.user.displayName}</span>
-                    <button 
-                        type="button"
-                        onClick={this.props.logout}>
-                        Logout
-                    </button>
                 </div>
+                <button 
+                    type="button"
+                    title="Logout"
+                    onClick={this.props.logout}>
+                    |&rarr;
+                </button>
             </header>
         );
     }

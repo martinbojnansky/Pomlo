@@ -21,6 +21,9 @@ export class WeekViewComponent extends React.Component<WeekViewComponentProps & 
         return (
             <div className="weekview">
                 <WeekViewItemComponent 
+                    name="Backlog"
+                    tasks={this.props.tasks}/>
+                <WeekViewItemComponent 
                     name="Monday"
                     tasks={this.props.tasks}/>
                 <WeekViewItemComponent 

@@ -14,17 +14,13 @@
         align-items: center;
 
         * {
-            margin-left: $padding-lg;
+            margin-right: $padding-lg;
         }
 
         img {
             height: 30px;
             border-radius: 50%;
             border: $border;
-        }
-
-        button {
-            color: red;
         }
     }
 }

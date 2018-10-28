@@ -23,7 +23,7 @@ export class LoginComponent extends React.Component<LoginComponentProps & LoginC
         return (
             <div className="login">
                 <h2>Pomlo</h2>
-                <p>Login</p>
+                <span>Login</span>
                 <p>
                     <button 
                         type="button"

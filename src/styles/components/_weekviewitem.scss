@@ -6,10 +6,19 @@
     flex: 0 0 18rem;
     border-right: $border;
 
+    &:nth-child(2n+1) {
+        background-color: $color-background-light;
+    }
+
     &-header {
+        display: flex;
+        flex-direction: row;
         flex: 0 0 auto;
+        justify-content: space-between;
+        align-items: center;
         padding: 0 $padding-lg;
-        font-weight: bold;
+        font-weight: $font-weight-bold;
+        text-transform: uppercase;
     }
 
     &-list {
@@ -25,5 +34,9 @@
 
     &-footer {
         flex: 0 0 auto;
+    }
+
+    &.today {
+        background-color: $color-background-accent;
     }
 }

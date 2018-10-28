@@ -1,13 +1,25 @@
 $color-background: #fff;
-$color-background-medium: #f2f2f2;
-$color-font: #000;
+$color-background-light:#f2f2f2;
+$color-background-medium: #e2e2e2;
+$color-background-accent: lightskyblue;
+$color-font: #222;
+
+$color-task-default: gold;
+$color-task-default_hover: ivory;
+$color-task-important: tomato;
 
 $padding-sm: 0.35rem;
 $padding-md: 0.7rem;
 $padding-lg: 1.1rem;
 $padding-xl: 1.8rem;
 
+$font-family: 'Roboto',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+$font-size: 14px;
+$font-weight-normal: 400;
+$font-weight-bold: 500;
+
 $border-width: 1px;
 $border-color: #ccc;
 $border-style: solid;
+$border-radius: 0px;
 $border: $border-width $border-style $border-color;
