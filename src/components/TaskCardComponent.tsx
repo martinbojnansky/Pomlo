@@ -19,7 +19,6 @@ export class TaskCardComponent extends React.Component<TaskCardComponentProps & 
                         <input type="checkbox" readOnly={true} checked={this.props.task.completed}/>
                         <b>{this.props.task.name}</b>
                     </label>
-                    {/* <span>{task.date}</span> */}
                     <span>{this.props.task.description}</span>
                 </div>
                 <div className="task-card-footer">

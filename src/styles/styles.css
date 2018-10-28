@@ -92,8 +92,6 @@ html, body {
       display: flex;
       align-items: center; }
       .task-card-body > label input[type=checkbox] {
-        width: 20px;
-        height: 20px;
         margin-right: 0.7rem; }
     .task-card-body > span {
       margin-top: 0.7rem; }
