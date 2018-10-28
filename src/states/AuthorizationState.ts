@@ -1,4 +1,4 @@
-import { LocalStorageKeys } from "constants/LocalStorageKeys";
+import { LocalStorageKeys } from "constants/localStorageKeys";
 
 export interface AuthorizationState {
     user: firebase.UserInfo

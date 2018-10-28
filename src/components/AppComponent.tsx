@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { StoreState } from 'states/StoreState';
+import { StoreState } from 'states/storeState';
 import { Switch, Route } from 'react-router';
-import { Routes } from 'constants/Routes';
+import { Routes } from 'constants/routes';
 import { AuthorizedRouteComponent } from 'components/AuthorizedRouteComponent';
 import LoginContainer from 'containers/LoginContainer';
 import LayoutContainer from 'containers/LayoutContainer';

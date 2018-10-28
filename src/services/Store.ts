@@ -1,8 +1,8 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
-import { navigation } from 'services/Navigation';
-import { reducers } from 'reducers/Reducers';
-import { StoreState, initialState } from 'states/StoreState';
+import { navigation } from 'services/navigation';
+import { reducers } from 'reducers/reducers';
+import { StoreState, initialState } from 'states/storeState';
 
 const middleware = 
 [

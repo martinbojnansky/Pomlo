@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { StoreState } from 'states/StoreState';
-import { Action } from 'actions/Actions';
-import currentUser from 'services/CurrentUser';
-import { navigation } from 'services/Navigation';
-import { Routes } from 'constants/Routes';
+import { StoreState } from 'states/storeState';
+import { Action } from 'actions/actions';
+import currentUser from 'services/currentUser';
+import { navigation } from 'services/navigation';
+import { Routes } from 'constants/routes';
 
 export interface LoginComponentProps {
 }

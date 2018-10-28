@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { StoreState } from 'states/StoreState';
+import { StoreState } from 'states/storeState';
 
-import { authorizationReducer } from './AuthorizationReducer';
-import { tasksReducer } from './TasksReducer';
+import { authorizationReducer } from './authorizationReducer';
+import { tasksReducer } from './tasksReducer';
 
 export const reducers = combineReducers<StoreState>({ 
     authorization: authorizationReducer,

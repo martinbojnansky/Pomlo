@@ -1,9 +1,9 @@
 import { ActionCreator, Dispatch } from 'react-redux';
 import { ThunkAction } from 'redux-thunk';
-import { StoreState } from 'states/StoreState';
-import { ActionType } from 'actions/Actions';
-import { Task } from 'models/Task';
-import tasksApi from 'api/TasksApi';
+import { StoreState } from 'states/storeState';
+import { ActionType } from 'actions/actions';
+import { Task } from 'models/task';
+import tasksApi from 'api/tasksApi';
 
 export interface WeekViewLoadTasksCompleted {
     type: ActionType.WEEKVIEW_LOADTASKS_COMPLETED,

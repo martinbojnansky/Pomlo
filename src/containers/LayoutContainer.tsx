@@ -1,4 +1,4 @@
-import { StoreState } from 'states/StoreState';
+import { StoreState } from 'states/storeState';
 import { connect, Dispatch } from 'react-redux';
 import { LayoutComponent, LayoutComponentProps, LayoutComponentDispatch } from 'components/LayoutComponent';
 

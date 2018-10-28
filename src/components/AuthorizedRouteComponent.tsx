@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Route, Redirect } from 'react-router';
-import { Routes } from 'constants/Routes';
-import { navigation } from 'services/Navigation';
-import currentUser from 'services/CurrentUser';
-import firebase from 'services/Firebase';
+import { Routes } from 'constants/routes';
+import { navigation } from 'services/navigation';
+import currentUser from 'services/currentUser';
+import firebase from 'services/firebase';
 
 const renderAuthorizedRouteComponent = (props: {}) => (Component: any) => {
     return class AuthorizedRouteSwitch extends React.PureComponent {

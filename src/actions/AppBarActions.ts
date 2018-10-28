@@ -1,9 +1,9 @@
 import { ActionCreator, Dispatch } from 'react-redux';
 import { ThunkAction } from 'redux-thunk';
-import { StoreState } from 'states/StoreState';
-import { ActionType } from 'actions/Actions';
-import { LocalStorageKeys } from 'constants/LocalStorageKeys';
-import firebase from 'services/Firebase';
+import { StoreState } from 'states/storeState';
+import { ActionType } from 'actions/actions';
+import { LocalStorageKeys } from 'constants/localStorageKeys';
+import firebase from 'services/firebase';
 
 export interface AppBarLogoutCompleted {
     type: ActionType.APPBAR_LOGOUT_COMPLETED

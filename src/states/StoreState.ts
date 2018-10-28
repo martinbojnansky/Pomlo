@@ -1,5 +1,5 @@
-import { AuthorizationState, initialAuthorizationState } from "./AuthorizationState";
-import { TasksState } from "./TasksState";
+import { AuthorizationState, initialAuthorizationState } from "./authorizationState";
+import { TasksState } from "./tasksState";
 
 export interface StoreState {
   authorization: AuthorizationState,

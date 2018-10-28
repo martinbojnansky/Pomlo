@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Switch, Route } from 'react-router';
-import { StoreState } from 'states/StoreState';
-import { Routes } from 'constants/Routes';
+import { StoreState } from 'states/storeState';
+import { Routes } from 'constants/routes';
 import AppBarContainer from 'containers/AppBarContainer';
 import WeekViewContainer from 'containers/WeekViewContainer';
 

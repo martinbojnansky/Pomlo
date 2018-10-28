@@ -1,12 +1,12 @@
 import { ActionCreator, Dispatch } from 'react-redux';
 import { ThunkAction } from 'redux-thunk';
-import { StoreState } from 'states/StoreState';
-import { ActionType } from 'actions/Actions';
-import { Routes } from 'constants/Routes';
-import { navigation } from 'services/Navigation';
-import firebase from 'services/Firebase';
+import { StoreState } from 'states/storeState';
+import { ActionType } from 'actions/actions';
+import { Routes } from 'constants/routes';
+import { navigation } from 'services/navigation';
+import firebase from 'services/firebase';
 import { UserInfo } from 'firebase';
-import currentUser from 'services/CurrentUser';
+import currentUser from 'services/currentUser';
 
 export interface LoginCompleted {
     type: ActionType.LOGIN_COMPLETED

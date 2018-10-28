@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { StoreState } from 'states/StoreState';
-import { Action } from 'actions/Actions';
+import { StoreState } from 'states/storeState';
+import { Action } from 'actions/actions';
 
 export interface AppBarComponentProps {
     user: firebase.UserInfo

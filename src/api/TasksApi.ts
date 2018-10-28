@@ -1,6 +1,6 @@
-import firebase from 'services/Firebase';
-import { Task } from 'models/Task';
-import currentUser from 'services/CurrentUser';
+import firebase from 'services/firebase';
+import { Task } from 'models/task';
+import currentUser from 'services/currentUser';
 
 const db = () => firebase.db().collection('tasks').where('uid', '==', currentUser.uid());
 

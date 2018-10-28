@@ -1,8 +1,8 @@
-import { StoreState } from 'states/StoreState';
+import { StoreState } from 'states/storeState';
 import { connect, Dispatch } from 'react-redux';
 import { AppBarComponent, AppBarComponentProps, AppBarComponentDispatch } from 'components/AppBarComponent';
 
-import * as appBarActions from 'actions/AppBarActions';
+import * as appBarActions from 'actions/appBarActions';
 
 export function mapStateToProps(state: StoreState): AppBarComponentProps {
   return {

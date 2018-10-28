@@ -1,6 +1,6 @@
-import * as login from './LoginActions';
-import * as appBar from './AppBarActions';
-import * as weekView from './WeekViewActions';
+import * as login from 'actions/loginActions';
+import * as appBar from 'actions/appBarActions';
+import * as weekView from 'actions/weekViewActions';
 
 export enum ActionType {
     NOT_SPECIFIED = 'NOT_SPECIFIED',

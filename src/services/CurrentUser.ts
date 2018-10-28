@@ -1,4 +1,4 @@
-import { LocalStorageKeys } from "constants/LocalStorageKeys";
+import { LocalStorageKeys } from "constants/localStorageKeys";
 import { UserInfo } from "firebase";
 
 const get = (): firebase.UserInfo | null => {

@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { StoreState } from 'states/StoreState';
-// import { Action } from 'actions/Actions';
-import { Task } from 'models/Task';
+import { StoreState } from 'states/storeState';
+// import { Action } from 'actions/actions';
+import { Task } from 'models/task';
 import { TaskCardComponent } from 'components/TaskCardComponent';
 
 export interface WeekViewItemComponentProps {
