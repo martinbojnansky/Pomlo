@@ -9,13 +9,18 @@
     &-header {
         flex: 0 0 auto;
         padding: 0 $padding-lg;
-        border-bottom: $border;
+        font-weight: bold;
     }
 
     &-list {
         flex: 1 1 auto;
         margin: 0;
-        padding: $padding-lg;
+        padding: 0 $padding-lg $padding-lg $padding-lg;
+        overflow-y: auto;
+
+        > * {
+            margin-top: $padding-lg;
+        }
     }
 
     &-footer {

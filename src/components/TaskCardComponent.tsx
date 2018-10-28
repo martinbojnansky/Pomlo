@@ -13,15 +13,13 @@ export interface TaskCardComponentDispatch {
 export class TaskCardComponent extends React.Component<TaskCardComponentProps & TaskCardComponentDispatch, StoreState> {
     render() {
         return (
-            <div className="task-card" draggable>
+            <div className="task-card" draggable={false}>
                 <div className="task-card-body">
                     <label>
                         <input type="checkbox" readOnly={true} checked={this.props.task.completed}/>
                         <b>{this.props.task.name}</b>
                     </label>
                     <span>{this.props.task.description}</span>
-                </div>
-                <div className="task-card-footer">
                 </div>
             </div>
         );

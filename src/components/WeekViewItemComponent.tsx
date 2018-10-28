@@ -19,13 +19,13 @@ export class WeekViewItemComponent extends React.Component<WeekViewItemComponent
                 <div className="weekview-item-header">
                     <p>{this.props.name}</p>
                 </div>
-                <ul className="weekview-item-list">
+                <div className="weekview-item-list">
                     {this.props.tasks.map((task) => {
                         return (
                             <TaskCardComponent key={task.id} task={task} />
                         );
                     })}
-                </ul>
+                </div>
             </div>
         );
     }
