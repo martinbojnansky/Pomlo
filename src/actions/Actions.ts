@@ -1,24 +1,24 @@
-import * as login from 'actions/loginActions';
-import * as appBar from 'actions/appBarActions';
-import * as weekView from 'actions/weekViewActions';
+import * as authorizationLoginActions from 'actions/authorization/loginActions';
+import * as authorizationLogoutActions from 'actions/authorization/logoutActions';
+import * as getWeekTasksActions from 'actions/tasks/getWeekTasksActions';
 
 export enum ActionType {
     NOT_SPECIFIED = 'NOT_SPECIFIED',
     // register action types here
-    LOGIN_COMPLETED = 'LOGIN_COMPLETED',
-    LOGIN_FAILED = 'LOGIN_FAILED',
-    APPBAR_LOGOUT_COMPLETED = 'APPBAR_LOGOUT_COMPLETED',
-    WEEKVIEW_LOADTASKS_COMPLETED = 'WEEKVIEW_LOADTASKS_COMPLETED',
-    WEEKVIEW_LOADTASKS_FAILED = 'WEEKVIEW_LOADTASKS_FAILED',
+    AUTHORIZATION_LOGIN_COMPLETED = 'AUTHORIZATION_LOGIN_COMPLETED',
+    AUTHORIZATION_LOGIN_FAILED = 'AUTHORIZATION_LOGIN_FAILED',
+    AUTHORIZATION_LOGOUT_COMPLETED = 'AUTHORIZATION_LOGOUT_COMPLETED',
+    TASKS_GET_WEEK_TASKS_COMPLETED = 'TASKS_GET_WEEK_TASKS_COMPLETED',
+    TASKS_GET_WEEK_TASKS_FAILED = 'TASKS_GET_WEEK_TASKS_FAILED',
 }
 
 export type Action = NotSpecifiedAction
 // register action interfaces here
-| login.LoginCompleted
-| login.LoginFailed
-| appBar.AppBarLogoutCompleted
-| weekView.WeekViewLoadTasksCompleted
-| weekView.WeekViewLoadTasksFailed
+| authorizationLoginActions.AuthorizationLoginCompleted
+| authorizationLoginActions.AuthorizationLoginFailed
+| authorizationLogoutActions.AuthorizationLogoutCompleted
+| getWeekTasksActions.TasksGetWeekTasksCompleted
+| getWeekTasksActions.TasksGetWeekTasksFailed
 ;
 
 export interface NotSpecifiedAction {

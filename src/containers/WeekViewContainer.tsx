@@ -2,7 +2,7 @@ import { StoreState } from 'states/storeState';
 import { connect, Dispatch } from 'react-redux';
 import { WeekViewComponent, WeekViewComponentProps, WeekViewComponentDispatch } from 'components/WeekViewComponent';
 
-import * as weekViewActions from 'actions/weekViewActions';
+import * as getWeekTasksActions from 'actions/tasks/getWeekTasksActions';
 
 export function mapStateToProps(state: StoreState): WeekViewComponentProps {
   return {
@@ -12,7 +12,7 @@ export function mapStateToProps(state: StoreState): WeekViewComponentProps {
 
 export function mapDispatchToProps(dispatch: Dispatch<StoreState>): WeekViewComponentDispatch {
   return {
-    loadTasks: () => dispatch(weekViewActions.loadTasks())
+    loadTasks: () => dispatch(getWeekTasksActions.getWeekTasks())
   };
 }
 

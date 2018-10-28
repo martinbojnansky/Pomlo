@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { getStore } from 'services/Store';
+import { getStore } from 'services/store';
 import { navigation } from 'services/navigation';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';

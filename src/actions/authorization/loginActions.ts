@@ -8,33 +8,33 @@ import firebase from 'services/firebase';
 import { UserInfo } from 'firebase';
 import currentUser from 'services/currentUser';
 
-export interface LoginCompleted {
-    type: ActionType.LOGIN_COMPLETED
+export interface AuthorizationLoginCompleted {
+    type: ActionType.AUTHORIZATION_LOGIN_COMPLETED
     user: firebase.UserInfo
 }
 
-export interface LoginFailed {
-    type: ActionType.LOGIN_FAILED
+export interface AuthorizationLoginFailed {
+    type: ActionType.AUTHORIZATION_LOGIN_FAILED
 }
 
-export const loginWithGoogle: ActionCreator<ThunkAction<Promise<LoginCompleted | LoginFailed>, StoreState, void>> 
+export const loginWithGoogle: ActionCreator<ThunkAction<Promise<AuthorizationLoginCompleted | AuthorizationLoginFailed>, StoreState, void>> 
 = () => {
-    return async (dispatch: Dispatch<StoreState>, getState: () => StoreState, params): Promise<LoginCompleted | LoginFailed> => {        
+    return async (dispatch: Dispatch<StoreState>, getState: () => StoreState, params): Promise<AuthorizationLoginCompleted | AuthorizationLoginFailed> => {        
         try {
             let user = await firebase.loginWithGoogle();
             currentUser.set(user.user as UserInfo);
             navigation.push(Routes.DEFAULT);
             return dispatch({
-                type: ActionType.LOGIN_COMPLETED,
+                type: ActionType.AUTHORIZATION_LOGIN_COMPLETED,
                 user: user.user
-            } as LoginCompleted);
+            } as AuthorizationLoginCompleted);
         }
         catch(error) {
             currentUser.reset();
-            alert(`Oops! Login failed :(`);
+            alert(`Oops! AuthorizationLogin failed :(`);
             return dispatch({
-                type: ActionType.LOGIN_FAILED,
-            } as LoginFailed);
+                type: ActionType.AUTHORIZATION_LOGIN_FAILED,
+            } as AuthorizationLoginFailed);
         }
     }
 };

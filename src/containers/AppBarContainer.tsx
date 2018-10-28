@@ -2,7 +2,7 @@ import { StoreState } from 'states/storeState';
 import { connect, Dispatch } from 'react-redux';
 import { AppBarComponent, AppBarComponentProps, AppBarComponentDispatch } from 'components/AppBarComponent';
 
-import * as appBarActions from 'actions/appBarActions';
+import * as authorizationLogoutActions from 'actions/authorization/logoutActions';
 
 export function mapStateToProps(state: StoreState): AppBarComponentProps {
   return {
@@ -12,7 +12,7 @@ export function mapStateToProps(state: StoreState): AppBarComponentProps {
 
 export function mapDispatchToProps(dispatch: Dispatch<StoreState>): AppBarComponentDispatch {
   return {
-    logout: () => dispatch(appBarActions.logout())
+    logout: () => dispatch(authorizationLogoutActions.logout())
   };
 }
 
