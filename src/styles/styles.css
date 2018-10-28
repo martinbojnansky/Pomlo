@@ -134,3 +134,48 @@ button {
       margin-top: 0.7rem; }
   .task-card.completed {
     text-decoration: line-through; }
+
+.modal.visible {
+  visibility: visible; }
+
+.modal.hidden {
+  visibility: hidden; }
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(60, 60, 60, 0.6); }
+
+.modal-wrapper {
+  position: fixed;
+  top: 5vh;
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: flex;
+  flex-direction: column;
+  background: #fff; }
+
+.modal-header {
+  display: flex;
+  flex-direction: row;
+  flex: 0 0 auto;
+  align-items: center;
+  padding: 0.7rem;
+  background-color: #f2f2f2;
+  border-bottom: 1px solid #ccc; }
+  .modal-header > span {
+    flex: 1 1 auto;
+    font-weight: 500; }
+  .modal-header > button {
+    flex: 0 0 auto; }
+
+.modal-body {
+  flex: 1 1 auto;
+  padding: 0.7rem; }
+
+.modal-footer {
+  flex: 0 0 auto;
+  padding: 0.7rem; }

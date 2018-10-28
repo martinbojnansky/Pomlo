@@ -1,0 +1,60 @@
+@import "../_global.scss";
+
+.modal {
+
+    &.visible {
+        visibility: visible;
+    }
+
+    &.hidden {
+        visibility: hidden;
+    }
+
+    &-overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: $color-background-overlay;
+    }
+
+    &-wrapper {
+        position: fixed;
+        top: 5vh;
+        left: 50%;
+        transform: translate(-50%, 0);
+        display: flex;
+        flex-direction: column;
+        background: $color-background;
+    }
+
+    &-header {
+        display: flex;
+        flex-direction: row;
+        flex: 0 0 auto;
+        align-items: center;
+        padding: $padding-md;
+        background-color: $color-background-light;
+        border-bottom: $border;
+
+        > span {
+            flex: 1 1 auto;
+            font-weight: $font-weight-bold;
+        }
+
+        > button {
+            flex: 0 0 auto;
+        }
+    }
+
+    &-body {
+        flex: 1 1 auto;
+        padding: $padding-md;
+    }
+
+    &-footer {
+        flex: 0 0 auto;
+        padding: $padding-md;
+    }
+}
