@@ -23,13 +23,12 @@ export class LoginComponent extends React.Component<LoginComponentProps & LoginC
         return (
             <div className="login">
                 <h2>Pomlo</h2>
-                <span>Login</span>
                 <p>
                     <button 
                         type="button"
                         onClick={this.props.loginWithGoogle}
                         >
-                        Google
+                        Login with Google
                     </button>
                 </p>
             </div>
