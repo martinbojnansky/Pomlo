@@ -24,7 +24,8 @@ export class WeekViewComponent extends React.Component<WeekViewComponentProps & 
                 <WeekViewItemComponent 
                     name="Backlog"
                     tasks={this.props.tasks}
-                    onOpenTask={this.props.onOpenTask}/>
+                    onOpenTask={this.props.onOpenTask}
+                />
             </div>
         );
     }

@@ -131,7 +131,8 @@ button {
       .task-card-body > span:not(:first-child) {
         margin-top: 0.7rem; }
   .task-card.completed {
-    text-decoration: line-through; }
+    text-decoration: line-through;
+    opacity: .5; }
 
 .modal {
   z-index: 1000; }

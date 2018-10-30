@@ -15,12 +15,11 @@ export class TaskCardComponent extends React.Component<TaskCardComponentProps & 
     render() {
         return (
             <div 
-                className="task-card" 
+                className={`task-card ${this.props.task.completed ? 'completed' : ''}`} 
                 draggable
                 onClick={() => this.props.onClick(this.props.task.id)}>
                 <div className="task-card-body">
                     <span>
-                        <input type="checkbox" readOnly={true} checked={this.props.task.completed}/>
                         <b>{this.props.task.name}</b>
                     </span>
                     {/* <span>{this.props.task.description}</span> */}

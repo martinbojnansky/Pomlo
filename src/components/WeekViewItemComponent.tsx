@@ -28,7 +28,11 @@ export class WeekViewItemComponent extends React.Component<WeekViewItemComponent
                     <div className="weekview-item-list">
                         {this.props.tasks.map((task) => {
                             return (
-                                <TaskCardComponent key={task.id} task={task} onClick={this.props.onOpenTask} />
+                                <TaskCardComponent 
+                                    key={task.id} 
+                                    task={task} 
+                                    onClick={this.props.onOpenTask} 
+                                />
                             );
                         })}
                         {this.props.tasks.length > 0 ?

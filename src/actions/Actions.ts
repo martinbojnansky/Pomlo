@@ -2,6 +2,7 @@ import * as authorizationLoginActions from 'actions/authorization/loginActions';
 import * as authorizationLogoutActions from 'actions/authorization/logoutActions';
 import * as getWeekTasksActions from 'actions/tasks/getWeekTasksActions';
 import * as openCloseTasksActions from 'actions/tasks/openCloseTasksActions';
+import * as editTasksActions from 'actions/tasks/editTasksActions';
 
 export enum ActionType {
     NOT_SPECIFIED = 'NOT_SPECIFIED',
@@ -12,8 +13,8 @@ export enum ActionType {
     TASKS_GET_WEEK_TASKS_COMPLETED = 'TASKS_GET_WEEK_TASKS_COMPLETED',
     TASKS_GET_WEEK_TASKS_FAILED = 'TASKS_GET_WEEK_TASKS_FAILED',
     TASKS_TASK_OPENED = 'TASKS_TASK_OPENED',
-    TASKS_TASK_CLOSED = 'TASKS_TASK_CLOSED'
-
+    TASKS_TASK_CLOSED = 'TASKS_TASK_CLOSED',
+    TASKS_TASK_UPDATED = 'TASKS_TASK_UPDATED'
 }
 
 export type Action = NotSpecifiedAction
@@ -25,6 +26,7 @@ export type Action = NotSpecifiedAction
 | getWeekTasksActions.TasksGetWeekTasksFailed
 | openCloseTasksActions.TasksTaskOpened
 | openCloseTasksActions.TasksTaskClosed
+| editTasksActions.TasksTaskUpdated
 ;
 
 export interface NotSpecifiedAction {

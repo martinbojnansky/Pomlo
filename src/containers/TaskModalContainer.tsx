@@ -3,6 +3,7 @@ import { connect, Dispatch } from 'react-redux';
 import { TaskModalComponent, TaskModalComponentProps, TaskModalComponentDispatch } from 'components/TaskModalComponent';
 
 import * as openCloseTasksActions from 'actions/tasks/openCloseTasksActions';
+import * as editTasksActions from 'actions/tasks/editTasksActions';
 
 export function mapStateToProps(state: StoreState): TaskModalComponentProps {
   return {
@@ -12,7 +13,8 @@ export function mapStateToProps(state: StoreState): TaskModalComponentProps {
 
 export function mapDispatchToProps(dispatch: Dispatch<StoreState>): TaskModalComponentDispatch {
   return {
-    onClosed: () => dispatch(openCloseTasksActions.closeTask())
+    onClosed: () => dispatch(openCloseTasksActions.closeTask()),
+    onTaskUpdated: (task) => dispatch(editTasksActions.updateTask(task))
   };
 }
 
