@@ -41,7 +41,7 @@ export class WeekViewItemComponent extends React.Component<WeekViewItemComponent
                 </div>
                 <ModalComponent
                     title="Task 1254"
-                    isVisible={true}
+                    isVisible={false}
                     onClosed={() => {}}
                     width="80vw"
                     height="80vh">

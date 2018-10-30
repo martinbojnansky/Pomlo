@@ -8,7 +8,7 @@ export interface ModalComponentProps {
 }
 
 export interface ModalComponentDispatch {
-    onClosed: () => void;
+    onClosed?: () => void;
 }
 
 export class ModalComponent extends React.Component<ModalComponentProps & ModalComponentDispatch, {}> {    
@@ -39,7 +39,7 @@ export class ModalComponent extends React.Component<ModalComponentProps & ModalC
             );
         }
         else {
-            return <div className="modal hidden"/>;
+            return null;
         }
     }
 }
