@@ -19,17 +19,17 @@
         padding: $padding-md;  
         border-left: 4*$border-width $border-style $color-task-default;
 
-        > label {
+        input[type=checkbox] {
+            margin-right: $padding-md;
+        }
+
+        > span {
             display: flex;
             align-items: center;
-    
-            input[type=checkbox] {
-                margin-right: $padding-md;
+
+            &:not(:first-child) {
+                margin-top: $padding-md;
             }
-        }
-    
-        > span {
-            margin-top: $padding-md;
         }
     }
 

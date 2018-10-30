@@ -8,17 +8,21 @@ export interface TaskCardComponentProps {
 }
 
 export interface TaskCardComponentDispatch {
+    onClick: (id: string) => void;
 }
 
 export class TaskCardComponent extends React.Component<TaskCardComponentProps & TaskCardComponentDispatch, StoreState> {
     render() {
         return (
-            <div className="task-card" draggable={false}>
+            <div 
+                className="task-card" 
+                draggable
+                onClick={() => this.props.onClick(this.props.task.id)}>
                 <div className="task-card-body">
-                    <label>
+                    <span>
                         <input type="checkbox" readOnly={true} checked={this.props.task.completed}/>
                         <b>{this.props.task.name}</b>
-                    </label>
+                    </span>
                     {/* <span>{this.props.task.description}</span> */}
                 </div>
             </div>

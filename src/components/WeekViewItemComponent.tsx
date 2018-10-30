@@ -3,7 +3,7 @@ import { StoreState } from 'states/storeState';
 // import { Action } from 'actions/actions';
 import { Task } from 'models/task';
 import { TaskCardComponent } from 'components/TaskCardComponent';
-import { ModalComponent } from './ModalComponent';
+import TaskModalContainer from 'containers/TaskModalContainer';
 
 export interface WeekViewItemComponentProps {
     name: string;
@@ -11,6 +11,7 @@ export interface WeekViewItemComponentProps {
 }
 
 export interface WeekViewItemComponentDispatch {
+    onOpenTask: (id: string) => void;
 }
 
 export class WeekViewItemComponent extends React.Component<WeekViewItemComponentProps & WeekViewItemComponentDispatch, StoreState> {
@@ -27,7 +28,7 @@ export class WeekViewItemComponent extends React.Component<WeekViewItemComponent
                     <div className="weekview-item-list">
                         {this.props.tasks.map((task) => {
                             return (
-                                <TaskCardComponent key={task.id} task={task} />
+                                <TaskCardComponent key={task.id} task={task} onClick={this.props.onOpenTask} />
                             );
                         })}
                         {this.props.tasks.length > 0 ?
@@ -39,14 +40,7 @@ export class WeekViewItemComponent extends React.Component<WeekViewItemComponent
                         }
                     </div>
                 </div>
-                <ModalComponent
-                    title="Task 1254"
-                    isVisible={false}
-                    onClosed={() => {}}
-                    width="80vw"
-                    height="80vh">
-                    xxx
-                </ModalComponent>
+                <TaskModalContainer />
             </React.Fragment>
         );
     }

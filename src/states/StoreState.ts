@@ -1,5 +1,6 @@
 import { AuthorizationState, initialAuthorizationState } from "./authorizationState";
 import { TasksState } from "./tasksState";
+import { TaskDictionary } from "models/task";
 
 export interface StoreState {
   authorization: AuthorizationState,
@@ -11,7 +12,7 @@ export function initialState(): StoreState
     return ({
         authorization: initialAuthorizationState(),
         tasks: {
-          tasks: []
+          tasks: {} as TaskDictionary
         }
     });
 };

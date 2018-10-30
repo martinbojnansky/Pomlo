@@ -1,16 +1,16 @@
 import firebase from 'services/firebase';
-import { Task } from 'models/task';
+import { Task, TaskDictionary } from 'models/task';
 import currentUser from 'services/currentUser';
 
 const db = () => firebase.db().collection('tasks').where('uid', '==', currentUser.uid());
 
-const getTasks = (): Promise<Task[]> => {
+const getTasks = (): Promise<TaskDictionary> => {
     return new Promise(async function(resolve, reject) {
         try {
-            let tasks: Task[] = [],
+            let tasks: { [id: string]: Task } = {},
             snapshot = await db().get();
             snapshot.docs.forEach(doc => {
-                tasks.push({ id: doc.id, ...doc.data() as Task});
+                tasks[doc.id] = { id: doc.id, ...doc.data() as Task};
             });
             resolve(tasks);
         }

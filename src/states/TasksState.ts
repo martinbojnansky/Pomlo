@@ -1,5 +1,6 @@
-import { Task } from "models/task";
+import { TaskDictionary } from "models/task";
 
 export interface TasksState {
-    tasks: Task[];
+    tasks: TaskDictionary;
+    openedId?: string;
 }

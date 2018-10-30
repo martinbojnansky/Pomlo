@@ -3,8 +3,12 @@ import { TasksState } from 'states/tasksState';
 
 export function tasksReducer(state: TasksState, action: Action): TasksState {
     switch (action.type) {
-      case ActionType.TASKS_GET_WEEK_TASKS_COMPLETED:
+        case ActionType.TASKS_GET_WEEK_TASKS_COMPLETED:
             return { ...state, tasks: action.tasks };
+        case ActionType.TASKS_TASK_OPENED:
+            return { ...state, openedId: action.taskId }; 
+        case ActionType.TASKS_TASK_CLOSED: 
+            return { ...state, openedId: undefined };   
         default:
             return { ...state };
     }

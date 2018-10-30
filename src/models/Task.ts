@@ -5,3 +5,7 @@ export interface Task {
     date: Date;
     completed: boolean;
 }
+
+export interface TaskDictionary {
+    [id: string]: Task
+}

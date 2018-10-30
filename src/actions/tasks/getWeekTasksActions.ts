@@ -2,12 +2,12 @@ import { ActionCreator, Dispatch } from 'react-redux';
 import { ThunkAction } from 'redux-thunk';
 import { StoreState } from 'states/storeState';
 import { ActionType } from 'actions/actions';
-import { Task } from 'models/task';
+import { TaskDictionary } from 'models/task';
 import tasksApi from 'api/tasksApi';
 
 export interface TasksGetWeekTasksCompleted {
     type: ActionType.TASKS_GET_WEEK_TASKS_COMPLETED,
-    tasks: Task[];
+    tasks: TaskDictionary;
 }
 
 export interface TasksGetWeekTasksFailed {
