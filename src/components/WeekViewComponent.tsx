@@ -45,7 +45,6 @@ export class WeekViewComponent extends React.Component<WeekViewComponentProps & 
                     name="Sunday"
                     tasks={this.props.tasks}/>
             </div>
-            
         );
     }
 }

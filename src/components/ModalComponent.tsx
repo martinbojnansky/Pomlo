@@ -3,6 +3,8 @@ import * as React from 'react';
 export interface ModalComponentProps {
     isVisible: boolean;   
     title?: string;
+    width?: string;
+    height?: string;
 }
 
 export interface ModalComponentDispatch {
@@ -11,19 +13,21 @@ export interface ModalComponentDispatch {
 
 export class ModalComponent extends React.Component<ModalComponentProps & ModalComponentDispatch, {}> {    
     render() {
+        let style: React.CSSProperties = { width: this.props.width, height: this.props.height };
+
         if(this.props.isVisible) {
             return (
                 <div className="modal visible">
                     <div 
                         className="modal-overlay"
                         onClick={this.props.onClosed}/>
-                    <div className="modal-wrapper">
+                    <div className="modal-wrapper" style={style}>
                         <div className="modal-header">
                             <span>{this.props.title}</span>
                             <button
                                 title="Close"
                                 onClick={this.props.onClosed}>
-                                ※
+                                &times;
                             </button>
                         </div>
                         <div className="modal-body">

@@ -15,12 +15,12 @@ export interface AppComponentDispatch {
 export class AppComponent extends React.Component<AppComponentProps & AppComponentDispatch, StoreState> {
   render() {
     return (
-      <div className="app"> 
+      <React.Fragment>
         <Switch>
           <Route path={Routes.LOGIN} component={LoginContainer} />
           <AuthorizedRouteComponent path={Routes.DEFAULT} component={LayoutContainer} /> 
         </Switch>
-      </div>
+      </React.Fragment>
     );
   }
 }

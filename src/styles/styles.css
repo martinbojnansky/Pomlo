@@ -10,7 +10,7 @@ html, body {
   font-size: 14px;
   font-weight: 400; }
 
-#root, .app, .layout {
+#root, .layout {
   height: 100%; }
 
 h1, h2, h3, h4, h5, h6, strong, b, a, button {
@@ -26,10 +26,6 @@ button {
   cursor: pointer; }
   button:hover {
     background-color: lightskyblue; }
-
-.app {
-  display: flex;
-  flex-direction: column; }
 
 .layout {
   display: flex;
@@ -147,7 +143,7 @@ button {
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(60, 60, 60, 0.6); }
+  background: rgba(240, 240, 240, 0.1); }
 
 .modal-wrapper {
   position: fixed;
@@ -156,7 +152,8 @@ button {
   transform: translate(-50%, 0);
   display: flex;
   flex-direction: column;
-  background: #fff; }
+  background: #fff;
+  border: 1px solid #ccc; }
 
 .modal-header {
   display: flex;
