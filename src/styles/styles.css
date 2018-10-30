@@ -13,6 +13,9 @@ html, body {
 #root, .layout {
   height: 100%; }
 
+*:focus {
+  outline: 2px solid steelblue; }
+
 h1, h2, h3, h4, h5, h6, strong, b, a, button {
   font-weight: 500; }
 
@@ -58,7 +61,6 @@ button {
 .login {
   display: flex;
   flex-direction: column;
-  align-self: center;
   width: 20rem;
   max-width: 100vw;
   margin-top: 1.8rem;
@@ -131,48 +133,44 @@ button {
   .task-card.completed {
     text-decoration: line-through; }
 
-.modal.visible {
-  visibility: visible; }
-
-.modal.hidden {
-  visibility: hidden; }
-
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(240, 240, 240, 0.7); }
-
-.modal-wrapper {
-  position: fixed;
-  top: 5vh;
-  left: 50%;
-  transform: translate(-50%, 0);
-  display: flex;
-  flex-direction: column;
-  background: #fff;
-  border: 1px solid #ccc; }
-
-.modal-header {
-  display: flex;
-  flex-direction: row;
-  flex: 0 0 auto;
-  align-items: center;
-  padding: 0.7rem;
-  background-color: #f2f2f2;
-  border-bottom: 1px solid #ccc; }
-  .modal-header > span {
+.modal {
+  z-index: 1000; }
+  .modal.visible {
+    visibility: visible; }
+  .modal.hidden {
+    visibility: hidden; }
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(240, 240, 240, 0.7); }
+  .modal-wrapper {
+    position: fixed;
+    top: 5vh;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid #ccc; }
+  .modal-header {
+    display: flex;
+    flex-direction: row;
+    flex: 0 0 auto;
+    align-items: center;
+    padding: 0.7rem;
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #ccc; }
+    .modal-header > span {
+      flex: 1 1 auto;
+      font-weight: 500; }
+    .modal-header > button {
+      flex: 0 0 auto; }
+  .modal-body {
     flex: 1 1 auto;
-    font-weight: 500; }
-  .modal-header > button {
-    flex: 0 0 auto; }
-
-.modal-body {
-  flex: 1 1 auto;
-  padding: 0.7rem; }
-
-.modal-footer {
-  flex: 0 0 auto;
-  padding: 0.7rem; }
+    padding: 0.7rem; }
+  .modal-footer {
+    flex: 0 0 auto;
+    padding: 0.7rem; }

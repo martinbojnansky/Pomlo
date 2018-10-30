@@ -17,6 +17,10 @@ html, body {
     height: 100%;
 }
 
+*:focus {
+    outline: $outline;
+}
+
 h1, h2, h3, h4, h5, h6, strong, b, a, button {
     font-weight: $font-weight-bold;
 }

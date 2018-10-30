@@ -1,6 +1,7 @@
 @import "../_global.scss";
 
 .modal {
+    z-index: 1000;
 
     &.visible {
         visibility: visible;
