@@ -23,29 +23,39 @@ export class TaskModalComponent extends React.Component<TaskModalComponentProps 
                     onClosed={this.props.onClosed}
                     width="80vw"
                     height="80vh">
-                    <p>
-                        <input 
-                            type="checkbox" 
-                            checked={this.props.task.completed}
-                            onChange={(e) => this.props.onTaskUpdated({ ...this.props.task, completed: e.target.checked } as Task)}
-                        />
-                        <input 
-                            type="text" 
-                            value={this.props.task.name}
-                            onChange={(e) => this.props.onTaskUpdated({ ...this.props.task, name: e.target.value } as Task)}
-                        />
-                    </p>
-                    <p>
-                        <WeekDayPickerComponent
-                            selectedDate={this.props.task.date.toDate()}
-                            onSelectedDateChanged={() => {}}/>
-                    </p>
-                    <p>
-                        <textarea 
-                            value={this.props.task.description}
-                            onChange={(e) => this.props.onTaskUpdated({ ...this.props.task, description: e.target.value } as Task)}
-                        />
-                    </p>
+                    <form>
+                        <div role="group">
+                            <label>Name</label>
+                            <input 
+                                type="text" 
+                                value={this.props.task.name}
+                                onChange={(e) => this.props.onTaskUpdated({ ...this.props.task, name: e.target.value } as Task)}
+                            />
+                        </div>
+                        <div role="group">
+                            <label>Date</label>
+                            <WeekDayPickerComponent
+                                selectedDate={this.props.task.date.toDate()}
+                                onSelectedDateChanged={() => {}}/>
+                        </div>
+                        <div role="group">
+                            <label>Description</label>
+                            <textarea 
+                                value={this.props.task.description}
+                                onChange={(e) => this.props.onTaskUpdated({ ...this.props.task, description: e.target.value } as Task)}
+                            />
+                        </div>
+                        <div role="group">
+                            <label>
+                                <input 
+                                    type="checkbox" 
+                                    checked={this.props.task.completed}
+                                    onChange={(e) => this.props.onTaskUpdated({ ...this.props.task, completed: e.target.checked } as Task)}
+                                />
+                                <span>Is Completed</span>
+                            </label>
+                        </div>
+                    </form>
                 </ModalComponent>
             );
         }

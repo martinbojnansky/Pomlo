@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export interface ModalComponentProps {
     isVisible: boolean;   
-    title?: string;
+    title?: string | React.Component;
     width?: string;
     height?: string;
     isLightDismissEnabled?: boolean;
