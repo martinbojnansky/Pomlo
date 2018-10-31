@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { Task } from 'models/task';
 import { ModalComponent } from './ModalComponent';
-import { WeekDayPickerComponent } from './WeekDayPickerComponent';
+import { WeekDayPickerComponent, WeekDayPickerFirstDayOfWeek } from './WeekDayPickerComponent';
+import * as firebase from 'firebase';
 
 export interface TaskModalComponentProps {
     task?: Task;
@@ -36,7 +37,9 @@ export class TaskModalComponent extends React.Component<TaskModalComponentProps 
                             <label>Date</label>
                             <WeekDayPickerComponent
                                 selectedDate={this.props.task.date.toDate()}
-                                onSelectedDateChanged={() => {}}/>
+                                onSelectedDateChanged={(date) => this.props.onTaskUpdated({ ...this.props.task, date: firebase.firestore.Timestamp.fromDate(date) } as Task)}
+                                firstDayOfWeek={WeekDayPickerFirstDayOfWeek.MONDAY}
+                            />
                         </div>
                         <div role="group">
                             <label>Description</label>

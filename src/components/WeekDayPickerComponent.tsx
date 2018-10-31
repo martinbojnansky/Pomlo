@@ -13,6 +13,7 @@ export interface WeekDayPickerComponentProps {
 
 export interface WeekDayPickerComponentDispatch {
     onSelectedDateChanged: (date: Date) => void;
+    onFormatDate?: (date: Date) => string;
 }
 
 export class WeekDayPickerComponent extends React.Component<WeekDayPickerComponentProps & WeekDayPickerComponentDispatch, {}> {    
@@ -30,7 +31,7 @@ export class WeekDayPickerComponent extends React.Component<WeekDayPickerCompone
                                 checked={day.getDay() === this.props.selectedDate.getDay()}
                                 onChange={(e) => this.props.onSelectedDateChanged(day)}
                             />
-                            <span>{day.toDateString()}</span>
+                            <span>{this.props.onFormatDate ? this.props.onFormatDate(day) : day.toDateString()}</span>
                         </label>
                     );
                 })}
@@ -43,11 +44,11 @@ function getDaysOfWeek(props: WeekDayPickerComponentProps) {
     let days: Date[] = [],
     firstDayOfWeek = props.firstDayOfWeek ? props.firstDayOfWeek : WeekDayPickerFirstDayOfWeek.SUNDAY,
     selectedDay = props.selectedDate.getDay(),
-    diff = selectedDay + (selectedDay == firstDayOfWeek ? 0 : -6);
+    diff = selectedDay - firstDayOfWeek + (selectedDay === 0 && firstDayOfWeek === 1 ? 7: 0);
 
     for(let i = 0; i < 7; i++) {
         let day = new Date(props.selectedDate);
-        day.setDate(props.selectedDate.getDate() + diff + i);
+        day.setDate(props.selectedDate.getDate() - diff + i);
         days.push(day);
     }
 
