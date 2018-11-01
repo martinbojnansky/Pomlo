@@ -9,7 +9,7 @@ export function tasksReducer(state: TasksState, action: Action): TasksState {
             return { ...state, openedId: action.taskId }; 
         case ActionType.TASKS_TASK_CLOSED: 
             return { ...state, openedId: undefined };   
-        case ActionType.TASKS_TASK_UPDATED:
+        case ActionType.TASKS_TASK_CHANGED:
             let tasks = { ...state.tasks };
             tasks[action.task.id] = action.task;
             return { ...state, tasks: tasks}
