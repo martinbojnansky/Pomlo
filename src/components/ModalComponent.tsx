@@ -7,6 +7,7 @@ export interface ModalComponentProps {
     height?: string;
     isLightDismissEnabled?: boolean;
     headerContent?: any;
+    footerContent?: any;
 }
 
 export interface ModalComponentDispatch {
@@ -33,7 +34,12 @@ export class ModalComponent extends React.Component<ModalComponentProps & ModalC
                         <div className="modal-body">
                             {this.props.children}
                         </div>
-                        <div className="modal-footer"/>
+                        {this.props.footerContent ? 
+                            <div className="modal-footer">
+                                {this.props.footerContent}
+                            </div>
+                            : null 
+                        }
                     </div>
                 </div>
             );
