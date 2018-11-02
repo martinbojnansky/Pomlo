@@ -2,17 +2,27 @@ import firebase from 'services/firebase';
 import { Task, TaskDictionary, TaskDTO } from 'models/task';
 import currentUser from 'services/currentUser';
 
-const db = () => firebase.db().collection('tasks').where('uid', '==', currentUser.uid());
-
 const getTasks = (): Promise<TaskDictionary> => {
     return new Promise(async function(resolve, reject) {
         try {
             let tasks: { [id: string]: Task } = {},
-            snapshot = await db().get();
+            snapshot = await firebase.db().collection('tasks').where('uid', '==', currentUser.uid()).get();
             snapshot.docs.forEach(doc => {
                 tasks[doc.id] = { id: doc.id, ...doc.data() as Task};
             });
             resolve(tasks);
+        }
+        catch(error) {
+            reject(error);
+        }
+    });
+}
+
+const createTask = (task: Task): Promise<string> => {
+    return new Promise(async function(resolve, reject) {
+        try {
+            let doc = await firebase.db().collection('tasks').add(task);       
+            resolve(doc.id);
         }
         catch(error) {
             reject(error);
@@ -34,5 +44,6 @@ const updateTask = (task: Task): Promise<void> => {
 
 export default {
     getTasks,
+    createTask,
     updateTask
 }

@@ -8,7 +8,7 @@ import * as updateTasksActions from 'actions/tasks/updateTasksActions';
 
 export function mapStateToProps(state: StoreState): TaskModalComponentProps {
   return {
-    task: state.tasks.openedId ? state.tasks.tasks[state.tasks.openedId] : undefined
+    task: state.tasks.openedTaskId ? state.tasks.tasks[state.tasks.openedTaskId] : undefined
   };
 }
 

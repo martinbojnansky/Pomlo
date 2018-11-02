@@ -5,28 +5,39 @@ import { ActionType } from 'actions/actions';
 import { Task } from 'models/task';
 import tasksApi from 'api/tasksApi';
 
+export interface TasksUpdateTaskCreated {
+    type: ActionType.TASKS_UPDATE_TASK_CREATED,
+    task: Task;
+}
+
 export interface TasksUpdateTaskCompleted {
     type: ActionType.TASKS_UPDATE_TASK_COMPLETED
 }
 
 export interface TasksUpdateTaskFailed {
     type: ActionType.TASKS_UPDATE_TASK_FAILED,
-    task: Task;
-    error: string;
 }
 
-export const updateTask: ActionCreator<ThunkAction<Promise<TasksUpdateTaskCompleted | TasksUpdateTaskFailed>, StoreState, void>> 
+export const updateTask: ActionCreator<ThunkAction<Promise<TasksUpdateTaskCreated | TasksUpdateTaskCompleted | TasksUpdateTaskFailed>, StoreState, void>> 
 = (task: Task) => {
-    return async (dispatch: Dispatch<StoreState>, getState: () => StoreState, params): Promise<TasksUpdateTaskCompleted | TasksUpdateTaskFailed> => {    
+    return async (dispatch: Dispatch<StoreState>, getState: () => StoreState, params): Promise<TasksUpdateTaskCreated | TasksUpdateTaskCompleted | TasksUpdateTaskFailed> => {    
         try {
-            await tasksApi.updateTask(task);
-            return dispatch({
-                type: ActionType.TASKS_UPDATE_TASK_COMPLETED
-            } as TasksUpdateTaskCompleted);
+            if(task.id !== '') {
+                await tasksApi.updateTask(task);
+                return dispatch({
+                    type: ActionType.TASKS_UPDATE_TASK_COMPLETED
+                } as TasksUpdateTaskCompleted);
+            }
+            else {
+                let id = await tasksApi.createTask(task);
+                return dispatch({
+                    type: ActionType.TASKS_UPDATE_TASK_CREATED,
+                    task: { ...task, id: id }
+                } as TasksUpdateTaskCreated);
+            }
         } catch(error) {
             return dispatch({
-                type: ActionType.TASKS_UPDATE_TASK_FAILED,
-                task: task
+                type: ActionType.TASKS_UPDATE_TASK_FAILED
             } as TasksUpdateTaskFailed);
         }
     }

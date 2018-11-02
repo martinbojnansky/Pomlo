@@ -20,6 +20,7 @@ export class TaskModalComponent extends React.Component<TaskModalComponentProps 
         super(props);
 
         this.handleTaskChanged = this.handleTaskChanged.bind(this);
+        this.handleTaskDateChanged = this.handleTaskDateChanged.bind(this);
         this.handleTaskUpdated = this.handleTaskUpdated.bind(this);
     }
 
@@ -32,7 +33,7 @@ export class TaskModalComponent extends React.Component<TaskModalComponentProps 
                 task.name = e.target.value;
                 break;
             case 'date':
-                task.date = firebase.firestore.Timestamp.fromDate(e as Date);
+                
             case 'description':
                 task.description = e.target.value;
                 break;
@@ -42,6 +43,13 @@ export class TaskModalComponent extends React.Component<TaskModalComponentProps 
         }
 
         this.props.onTaskChanged(task);
+    }
+
+    handleTaskDateChanged(date: Date) {
+        if(this.props.task) {
+            let task = { ...this.props.task, date: firebase.firestore.Timestamp.fromDate(date) } as Task;
+            this.props.onTaskChanged(task);
+        }
     }
     
     handleTaskUpdated() {
@@ -58,8 +66,19 @@ export class TaskModalComponent extends React.Component<TaskModalComponentProps 
                     isVisible={true}
                     isLightDismissEnabled={true}
                     onClosed={this.props.onClosed}
-                    width="80vw">
-                    <form>
+                    width="80vw"
+                    headerContent={
+                        <React.Fragment>
+                            <span>{this.props.task.name}</span>
+                            <button
+                                title="Close"
+                                onClick={this.props.onClosed}>
+                                &times;
+                            </button>
+                        </React.Fragment>
+                    }
+                    >
+                    <div role="form">
                         <div role="group">
                             <label>Name</label>
                             <input                            
@@ -73,9 +92,8 @@ export class TaskModalComponent extends React.Component<TaskModalComponentProps 
                         <div role="group">
                             <label>Date</label>
                             <WeekDayPickerComponent
-                                data-prop="date"
                                 selectedDate={this.props.task.date.toDate()}
-                                onSelectedDateChanged={this.handleTaskChanged}
+                                onSelectedDateChanged={this.handleTaskDateChanged}
                                 firstDayOfWeek={WeekDayPickerFirstDayOfWeek.MONDAY}
                             />
                         </div>
@@ -95,11 +113,12 @@ export class TaskModalComponent extends React.Component<TaskModalComponentProps 
                                     type="checkbox" 
                                     checked={this.props.task.completed}
                                     onChange={this.handleTaskChanged}
+                                    onBlur={this.handleTaskUpdated}
                                 />
                                 <span>Is Completed</span>
                             </label>
                         </div>
-                    </form>
+                    </div>
                 </ModalComponent>
             );
         }

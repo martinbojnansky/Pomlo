@@ -22,22 +22,22 @@ html, body, input, textarea, button {
 h1, h2, h3, h4, h5, h6, strong, b, a, button {
   font-weight: 500; }
 
-form {
+div[role=form] {
   display: flex;
   flex-direction: column; }
-  form div[role=group] {
+  div[role=form] div[role=group] {
     display: flex;
     flex-direction: column; }
-    form div[role=group]:not(:last-child) {
+    div[role=form] div[role=group]:not(:last-child) {
       margin-bottom: 1.1rem; }
-  form label {
+  div[role=form] label {
     display: inline-flex;
     align-items: center;
     margin: 0.7rem 0;
     color: #666;
     font-size: 0.9rem;
     font-weight: 500; }
-    form label > *:not(:last-child) {
+    div[role=form] label > *:not(:last-child) {
       margin-right: 0.7rem; }
 
 input[type=text], textarea {
@@ -150,6 +150,7 @@ button, .btn {
   border-radius: 0px; }
   .task-card:hover {
     background-color: ivory;
+    border-color: gold;
     cursor: pointer; }
   .task-card-body {
     display: flex;

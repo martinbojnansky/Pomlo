@@ -6,6 +6,7 @@ export interface ModalComponentProps {
     width?: string;
     height?: string;
     isLightDismissEnabled?: boolean;
+    headerContent?: any;
 }
 
 export interface ModalComponentDispatch {
@@ -23,14 +24,12 @@ export class ModalComponent extends React.Component<ModalComponentProps & ModalC
                         className="modal-overlay"
                         onClick={this.props.isLightDismissEnabled ? this.props.onClosed : () => {}}/>
                     <div className="modal-wrapper" style={style}>
-                        <div className="modal-header">
-                            <span>{this.props.title}</span>
-                            <button
-                                title="Close"
-                                onClick={this.props.onClosed}>
-                                &times;
-                            </button>
-                        </div>
+                        {this.props.headerContent ? 
+                            <div className="modal-header">
+                                {this.props.headerContent}
+                            </div>
+                            : null 
+                        }
                         <div className="modal-body">
                             {this.props.children}
                         </div>
