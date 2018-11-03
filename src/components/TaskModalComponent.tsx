@@ -92,7 +92,7 @@ export class TaskModalComponent extends React.Component<TaskModalComponentProps 
                         <div role="group">
                             <label>Date</label>
                             <WeekDayPickerComponent
-                                selectedDate={this.props.task.date.toDate()}
+                                selectedDate={this.props.task.date ? this.props.task.date.toDate() : new Date()}
                                 onSelectedDateChanged={this.handleTaskDateChanged}
                                 firstDayOfWeek={WeekDayPickerFirstDayOfWeek.MONDAY}
                             />

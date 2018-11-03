@@ -4,6 +4,7 @@ import { WeekViewComponent, WeekViewComponentProps, WeekViewComponentDispatch } 
 
 import * as getWeekTasksActions from 'actions/tasks/getWeekTasksActions';
 import * as openCloseTasksActions from 'actions/tasks/openCloseTasksActions';
+import * as createTasksActions from 'actions/tasks/createTasksActions';
 
 export function mapStateToProps(state: StoreState): WeekViewComponentProps {
   return {
@@ -13,8 +14,9 @@ export function mapStateToProps(state: StoreState): WeekViewComponentProps {
 
 export function mapDispatchToProps(dispatch: Dispatch<StoreState>): WeekViewComponentDispatch {
   return {
-    loadTasks: () => dispatch(getWeekTasksActions.getWeekTasks()),
-    onOpenTask: (id: string) => dispatch(openCloseTasksActions.openTask(id))
+    onLoadTasks: () => dispatch(getWeekTasksActions.getWeekTasks()),
+    onOpenTask: (id) => dispatch(openCloseTasksActions.openTask(id)),
+    onCreateTask: (date) => dispatch(createTasksActions.createTask(date)) 
   };
 }
 
