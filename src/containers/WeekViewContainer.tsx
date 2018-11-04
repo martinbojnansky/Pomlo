@@ -8,7 +8,8 @@ import * as createTasksActions from 'actions/tasks/createTasksActions';
 
 export function mapStateToProps(state: StoreState): WeekViewComponentProps {
   return {
-    tasks: Object.values(state.tasks.tasks)
+    tasks: Object.values(state.tasks.tasks),
+    date: new Date()
   };
 }
 

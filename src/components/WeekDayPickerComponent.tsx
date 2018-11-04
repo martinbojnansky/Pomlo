@@ -1,14 +1,9 @@
 import * as React from 'react';
 import idUtils from 'utils/idUtils';
 
-export enum WeekDayPickerFirstDayOfWeek {
-    SUNDAY = 0,
-    MONDAY = 1
-}
-
 export interface WeekDayPickerComponentProps {   
     selectedDate: Date;
-    firstDayOfWeek?: WeekDayPickerFirstDayOfWeek;
+    firstDayOfWeek?: 0 | 1;
 }
 
 export interface WeekDayPickerComponentDispatch {
@@ -42,7 +37,7 @@ export class WeekDayPickerComponent extends React.Component<WeekDayPickerCompone
 
 function getDaysOfWeek(props: WeekDayPickerComponentProps) {
     let days: Date[] = [],
-    firstDayOfWeek = props.firstDayOfWeek ? props.firstDayOfWeek : WeekDayPickerFirstDayOfWeek.SUNDAY,
+    firstDayOfWeek = props.firstDayOfWeek ? props.firstDayOfWeek : 0,
     selectedDay = props.selectedDate.getDay(),
     diff = selectedDay - firstDayOfWeek + (selectedDay === 0 && firstDayOfWeek === 1 ? 7: 0);
 
