@@ -40,20 +40,20 @@ export class WeekPickerComponent extends React.Component<WeekPickerComponentProp
     render() {
         return (
             <div className="week-picker">
-                <span>{dateUtils.toWeekDateString(dateUtils.getStartOfWeek(this.props.selectedStartDate, 1), 1)}</span>
                 <button
                     type="button"
                     title="Previous"
                     onClick={this.handlePrevChange}
                 >
-                    Prev
+                    &lsaquo;
                 </button>
+                <span>{dateUtils.toWeekDateString(dateUtils.getStartOfWeek(this.props.selectedStartDate, 1), 1)}</span>
                 <button
                     type="button"
                     title="Next"
                     onClick={this.handleNextChange}
                 >
-                    Next
+                    &rsaquo;
                 </button>
             </div>
         );

@@ -22,5 +22,17 @@
             border-radius: 50%;
             border: $border;
         }
+
+        span {
+            flex: 0 0 auto;
+        }
+    }
+
+    > * {
+        flex: 0 0 auto;
+    }
+
+    .week-picker {
+        flex: 0 1 40rem;
     }
 }

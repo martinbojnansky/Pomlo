@@ -1,0 +1,18 @@
+@import "../_global.scss";
+
+.week-picker {
+    display: inline-flex;
+    align-items: stretch;
+    max-width: $datepicker-width;
+
+    > button {
+        flex: 1 0 0%;
+    }
+
+    > span {
+        flex: 5 0 0%;
+        padding: $padding-sm $padding-lg;
+        background-color: $color-background-light;
+        text-align: center;
+    }
+}

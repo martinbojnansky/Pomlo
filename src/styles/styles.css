@@ -53,14 +53,16 @@ textarea {
   height: 12rem;
   resize: vertical; }
 
-button, .btn {
+button, .btn, .weekday-picker > label {
+  font-size: 1rem;
   font-weight: 500;
-  background: #e2e2e2;
+  background-color: #e2e2e2;
+  color: #222;
   border: 1px solid transparent;
   border-radius: 0px;
   padding: 0.5rem 1.1rem;
   cursor: pointer; }
-  button:hover, .btn:hover {
+  button:hover, .btn:hover, .weekday-picker > label:hover {
     background-color: lightskyblue; }
 
 .layout {
@@ -90,6 +92,12 @@ button, .btn {
       height: 30px;
       border-radius: 50%;
       border: 1px solid #ccc; }
+    .appbar-userinfo span {
+      flex: 0 0 auto; }
+  .appbar > * {
+    flex: 0 0 auto; }
+  .appbar .week-picker {
+    flex: 0 1 40rem; }
 
 .login {
   display: flex;
@@ -211,5 +219,42 @@ button, .btn {
     flex: 0 0 auto;
     padding: 0.7rem; }
 
-.weekdaypicker input[type=radio] {
-  visibility: hidden; }
+.week-picker {
+  display: inline-flex;
+  align-items: stretch;
+  max-width: 60rem; }
+  .week-picker > button {
+    flex: 1 0 0%; }
+  .week-picker > span {
+    flex: 5 0 0%;
+    padding: 0.5rem 1.1rem;
+    background-color: #f2f2f2;
+    text-align: center; }
+
+.weekday-picker {
+  display: flex;
+  flex-direction: row;
+  max-width: 60rem; }
+  .weekday-picker > label {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex: 1 0 0%;
+    margin-bottom: 0 !important; }
+    .weekday-picker > label > input[type=radio] {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0; }
+    .weekday-picker > label > span {
+      flex: 1 1 auto;
+      font-size: 1rem;
+      color: #222;
+      text-align: center; }
+    .weekday-picker > label.selected {
+      background-color: dodgerblue; }
+      .weekday-picker > label.selected > span {
+        color: #fff; }
+      .weekday-picker > label.selected:hover {
+        cursor: default; }

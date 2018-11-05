@@ -73,8 +73,10 @@ textarea {
 }
 
 button, .btn {
+    font-size: $font-size-md;
     font-weight: $font-weight-bold;
-    background: $color-background-medium;
+    background-color: $color-background-medium;
+    color: $color-font;
     border: $border-width $border-style transparent;
     border-radius: $border-radius;
     

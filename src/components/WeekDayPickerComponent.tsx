@@ -17,14 +17,16 @@ export class WeekDayPickerComponent extends React.Component<WeekDayPickerCompone
         return (
             <div className="weekday-picker">
                 {getDaysOfWeek(this.props).map((day: Date) => {
+                    let isChecked = day.getDay() === this.props.selectedDate.getDay();
                     return(
-                        <label                
-                            key={day.getDay()}>
+                        <label                 
+                            key={day.getDay()}
+                            className={isChecked ? 'selected' : '' }>
                             <input 
                                 type="radio" 
                                 name={`weekday-picker-${idUtils.uuid()}`}
                                 value={day.getDay()}
-                                checked={day.getDay() === this.props.selectedDate.getDay()}
+                                checked={isChecked}
                                 onChange={(e) => this.props.onSelectedDateChanged(day)}
                             />
                             <span>{this.props.onFormatDate ? this.props.onFormatDate(day) : dateUtils.toWeekDayString(day)}</span>

@@ -95,7 +95,7 @@ const toWeekDateString = (date: Date, firstDayOfWeek: number = 0): string => {
 
 const toWeekDayString = (date: Date, firstDayOfWeek: number = 0): string => {
     let dayNames = getWeekDayNames(firstDayOfWeek);
-    return `${dayNames[date.getDay()].substring(0,3)}`;
+    return `${dayNames[date.getDay()].substring(0,3)} ${date.getDate()}`;
 }
 
 export default {

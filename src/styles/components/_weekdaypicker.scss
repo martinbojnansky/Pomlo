@@ -1,7 +1,43 @@
 @import "../_global.scss";
 
-.weekdaypicker {
-    input[type=radio] {
-        visibility: hidden;
+.weekday-picker {
+    display: flex;
+    flex-direction: row;
+    max-width: $datepicker-width;
+
+    > label {
+        @extend .btn;
+        position:relative;
+        display: flex;
+        flex-direction: row;
+        flex: 1 0 0%;
+        margin-bottom: 0 !important;
+        
+        > input[type=radio] {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        > span {
+            flex: 1 1 auto;
+            font-size: $font-size-md;
+            color: $color-font;
+            text-align: center;
+        }
+
+        &.selected {
+            background-color: $color-accent;      
+
+            > span {
+                color: $color-font-contrast;
+            }
+    
+            &:hover {
+                cursor: default;
+            }
+        }
     }
 }

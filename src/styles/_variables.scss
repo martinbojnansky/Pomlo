@@ -5,6 +5,7 @@ $color-background-accent: lightskyblue;
 $color-background-overlay: rgba(240,240,240,0.7);
 $color-font: #222;
 $color-font-medium: #666;
+$color-font-contrast: #fff;
 $color-accent: dodgerblue;
 
 $color-task-default: gold;
@@ -30,3 +31,5 @@ $border-color: #ccc;
 $border-style: solid;
 $border-radius: 0px;
 $border: $border-width $border-style $border-color;
+
+$datepicker-width: 60rem;
