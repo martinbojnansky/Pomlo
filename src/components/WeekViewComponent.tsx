@@ -4,6 +4,7 @@ import { Action } from 'actions/actions';
 import { Task } from 'models/task';
 import { WeekViewItemComponent } from './WeekViewItemComponent';
 import dateUtils from 'utils/dateUtils';
+import TaskModalContainer from 'containers/TaskModalContainer';
 
 export interface WeekViewComponentProps {
     tasks: Task[];
@@ -49,9 +50,12 @@ export class WeekViewComponent extends React.Component<WeekViewComponentProps & 
         }
 
         return (
-            <div className="weekview">
-                {weekViewItems.map(i => i)}
-            </div>
+            <React.Fragment>
+                <div className="weekview">
+                    {weekViewItems.map(i => i)}
+                </div>
+                <TaskModalContainer />
+            </React.Fragment>
         );
     }
 }
