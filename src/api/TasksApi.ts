@@ -18,11 +18,11 @@ const getTasks = (): Promise<TaskDictionary> => {
     });
 }
 
-const createTask = (taskDto: TaskDTO): Promise<Task> => {
+const createTask = (task: Task): Promise<void> => {
     return new Promise(async function(resolve, reject) {
         try {
-            let ref = await firebase.db().collection('tasks').add(taskDto);
-            resolve(taskMapper.toTask(taskDto, ref.id));
+            let result = await firebase.db().doc(`tasks/${task.id}`).set(taskMapper.toTaskDTO(task));
+            resolve(result);
         }
         catch(error) {
             reject(error);

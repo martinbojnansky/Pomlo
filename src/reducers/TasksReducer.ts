@@ -16,7 +16,7 @@ export function tasksReducer(state: TasksState, action: Action): TasksState {
             tasks = { ...state.tasks };
             tasks[action.task.id] = action.task;
             return { ...state, tasks: tasks}
-        case ActionType.TASKS_CREATE_TASK_COMPLETED:
+        case ActionType.TASKS_CREATE_TASK_STARTED:
             tasks = { ...state.tasks };
             tasks[action.task.id] = action.task;
             return { ...state, tasks: tasks, openedTaskId: action.task.id };

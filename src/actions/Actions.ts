@@ -17,6 +17,7 @@ export enum ActionType {
     TASKS_TASK_OPENED = 'TASKS_TASK_OPENED',
     TASKS_TASK_CLOSED = 'TASKS_TASK_CLOSED',
     TASKS_TASK_CHANGED = 'TASKS_TASK_CHANGED',
+    TASKS_CREATE_TASK_STARTED = 'TASKS_CREATE_TASK_STARTED',
     TASKS_CREATE_TASK_COMPLETED = 'TASKS_CREATE_TASK_COMPLETED',
     TASKS_CREATE_TASK_FAILED = 'TASKS_CREATE_TASK_FAILED',
     TASKS_UPDATE_TASK_COMPLETED = 'TASKS_UPDATE_TASK_COMPLETED',
@@ -33,6 +34,7 @@ export type Action = NotSpecifiedAction
 | openCloseTasksActions.TasksTaskOpened
 | openCloseTasksActions.TasksTaskClosed
 | changeTasksActions.TasksTaskChanged
+| createTasksActions.TasksCreateTaskStarted
 | createTasksActions.TasksCreateTaskCompleted
 | createTasksActions.TasksCreateTaskFailed
 | updateTasksActions.TasksUpdateTaskCompleted
