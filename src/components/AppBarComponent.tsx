@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { StoreState } from 'states/storeState';
 import { Action } from 'actions/actions';
+import { WeekPickerComponent } from './WeekPickerComponent';
+import dateUtils from 'utils/dateUtils';
 
 export interface AppBarComponentProps {
     user: firebase.UserInfo
@@ -18,6 +20,10 @@ export class AppBarComponent extends React.Component<AppBarComponentProps & AppB
                     <img src={this.props.user.photoURL ? this.props.user.photoURL : ""} />
                     <span>{this.props.user.displayName}</span>
                 </div>
+                <WeekPickerComponent
+                        selectedStartDate={dateUtils.getStartOfWeek(new Date(), 1)}
+                        onSelectedStartDateChanged={() => {}}
+                />
                 <button 
                     type="button"
                     title="Logout"

@@ -210,3 +210,6 @@ button, .btn {
   .modal-footer {
     flex: 0 0 auto;
     padding: 0.7rem; }
+
+.weekdaypicker input[type=radio] {
+  visibility: hidden; }

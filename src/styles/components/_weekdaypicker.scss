@@ -1,0 +1,7 @@
+@import "../_global.scss";
+
+.weekdaypicker {
+    input[type=radio] {
+        visibility: hidden;
+    }
+}

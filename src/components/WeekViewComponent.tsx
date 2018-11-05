@@ -27,17 +27,19 @@ export class WeekViewComponent extends React.Component<WeekViewComponentProps & 
 
         weekViewItems.push(
             <WeekViewItemComponent 
-                    name="Backlog"
-                    tasks={this.props.tasks}
-                    onOpenTask={this.props.onOpenTask}
-                    onCreateTask={this.props.onCreateTask}
-                />
+                key={-1}
+                name="Backlog"
+                tasks={this.props.tasks}
+                onOpenTask={this.props.onOpenTask}
+                onCreateTask={this.props.onCreateTask}
+            />
         );
 
         for(let i = 0; i < 7; i++) {
             weekViewItems.push(
-                <WeekViewItemComponent 
-                    name={weekDays[i].name}
+                <WeekViewItemComponent            
+                    key={i}
+                    name={`${weekDays[i].name}, ${weekDays[i].date.getDate()}`}
                     tasks={filterWeekItemTasks(this.props.tasks, weekDays[i].date)}
                     onOpenTask={this.props.onOpenTask}
                     onCreateTask={this.props.onCreateTask}

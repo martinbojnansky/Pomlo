@@ -1,5 +1,6 @@
 import * as React from 'react';
 import idUtils from 'utils/idUtils';
+import dateUtils from 'utils/dateUtils';
 
 export interface WeekDayPickerComponentProps {   
     selectedDate: Date;
@@ -26,7 +27,7 @@ export class WeekDayPickerComponent extends React.Component<WeekDayPickerCompone
                                 checked={day.getDay() === this.props.selectedDate.getDay()}
                                 onChange={(e) => this.props.onSelectedDateChanged(day)}
                             />
-                            <span>{this.props.onFormatDate ? this.props.onFormatDate(day) : day.toDateString()}</span>
+                            <span>{this.props.onFormatDate ? this.props.onFormatDate(day) : dateUtils.toWeekDayString(day)}</span>
                         </label>
                     );
                 })}

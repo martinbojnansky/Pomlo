@@ -11,7 +11,7 @@ const getStartOfWeek = (date: Date, firstDayOfWeek: number = 0): Date => {
     start = new Date(date);
     
     start.setDate(date.getDate() - diff);    
-    return start;
+    return getStartOfDay(start);
 }
 
 export interface DayOfWeek {
@@ -59,9 +59,51 @@ const getWeekDayNames = (firstDayOfWeek: number = 0): string[] => {
     return names;
 }
 
+const getMonthNames = (): string[] => {
+    return [
+        'January', 'February', 'March', 'April', 'May', 'June', 
+        'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+}
+
+const toWeekDateString = (date: Date, firstDayOfWeek: number = 0): string => {
+    let start = getStartOfWeek(date, firstDayOfWeek),
+    end, current, next, prev,
+    monthNames = getMonthNames();
+
+    end = new Date(start);
+    end.setDate(end.getDate() + 7);
+    current = getStartOfWeek(new Date(), firstDayOfWeek);
+    next = new Date(current);
+    next.setDate(next.getDate() + 7);
+    prev = new Date(current);
+    prev.setDate(prev.getDate() - 7);
+
+    if (start.getTime() === current.getTime()) {
+        return 'This Week';
+    }
+    else if (start.getTime() === prev.getTime()) {
+        return 'Last Week';
+    }
+    else if (start.getTime() === next.getTime()) {
+        return 'Next Week';
+    }
+    else {
+        return `${start.getDate()} ${monthNames[start.getMonth()].substring(0,3)} - ${end.getDate()} ${monthNames[end.getMonth()].substring(0,3)}`;
+    }
+}
+
+const toWeekDayString = (date: Date, firstDayOfWeek: number = 0): string => {
+    let dayNames = getWeekDayNames(firstDayOfWeek);
+    return `${dayNames[date.getDay()].substring(0,3)}`;
+}
+
 export default {
     getStartOfDay,
     getStartOfWeek,
     getWeekDays,
-    getWeekDayNames
+    getWeekDayNames,
+    getMonthNames,
+    toWeekDateString,
+    toWeekDayString
 }
