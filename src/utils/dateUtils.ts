@@ -1,17 +1,27 @@
 const getStartOfDay = (date: Date): Date => {
     let start = new Date(date);
-    start.setHours(0, 0, 0, 0);
-    
+    start.setHours(0, 0, 0, 0);    
     return start;
+}
+
+const getEndOfDay = (date: Date): Date => {
+    let end = new Date(date);
+    end.setHours(23, 59, 59, 999); 
+    return end;
 }
 
 const getStartOfWeek = (date: Date, firstDayOfWeek: number = 0): Date => {
     let currentDay = date.getDay(),
     diff = currentDay - firstDayOfWeek + (currentDay === 0 && firstDayOfWeek === 1 ? 7: 0),
-    start = new Date(date);
-    
+    start = new Date(date);   
     start.setDate(date.getDate() - diff);    
     return getStartOfDay(start);
+}
+
+const getEndOfWeek = (date: Date, firstDayOfWeek: number = 0): Date => {
+    let end = getStartOfWeek(date, firstDayOfWeek);  
+    end.setDate(end.getDate() + 6);    
+    return getEndOfDay(end);
 }
 
 export interface DayOfWeek {
@@ -100,7 +110,9 @@ const toWeekDayString = (date: Date, firstDayOfWeek: number = 0): string => {
 
 export default {
     getStartOfDay,
+    getEndOfDay,
     getStartOfWeek,
+    getEndOfWeek,
     getWeekDays,
     getWeekDayNames,
     getMonthNames,

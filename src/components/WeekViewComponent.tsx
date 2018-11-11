@@ -12,29 +12,29 @@ export interface WeekViewComponentProps {
 }
 
 export interface WeekViewComponentDispatch {
-    onLoadTasks: () => Promise<Action>;
+    onLoadTasks: (date: Date) => Promise<Action>;
     onOpenTask: (id: string) => void;
     onCreateTask: (date?: Date) => Promise<Action>;
 }
 
 export class WeekViewComponent extends React.Component<WeekViewComponentProps & WeekViewComponentDispatch, StoreState> {
     componentWillMount() {
-        this.props.onLoadTasks();
+        this.props.onLoadTasks(this.props.date);
     }
 
     render() {
         let weekDays = dateUtils.getWeekDays(this.props.date, 1),
         weekViewItems: JSX.Element[] = [];
 
-        weekViewItems.push(
-            <WeekViewItemComponent 
-                key={-1}
-                name="Backlog"
-                tasks={this.props.tasks}
-                onOpenTask={this.props.onOpenTask}
-                onCreateTask={this.props.onCreateTask}
-            />
-        );
+        // weekViewItems.push(
+        //     <WeekViewItemComponent 
+        //         key={-1}
+        //         name="Backlog"
+        //         tasks={this.props.tasks}
+        //         onOpenTask={this.props.onOpenTask}
+        //         onCreateTask={this.props.onCreateTask}
+        //     />
+        // );
 
         for(let i = 0; i < 7; i++) {
             weekViewItems.push(

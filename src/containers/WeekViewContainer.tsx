@@ -9,13 +9,13 @@ import * as createTasksActions from 'actions/tasks/createTasksActions';
 export function mapStateToProps(state: StoreState): WeekViewComponentProps {
   return {
     tasks: Object.values(state.tasks.tasks),
-    date: new Date()
+    date: state.tasks.weekDate
   };
 }
 
 export function mapDispatchToProps(dispatch: Dispatch<StoreState>): WeekViewComponentDispatch {
   return {
-    onLoadTasks: () => dispatch(getWeekTasksActions.getWeekTasks()),
+    onLoadTasks: (date) => dispatch(getWeekTasksActions.getWeekTasks(date)),
     onOpenTask: (id) => dispatch(openCloseTasksActions.openTask(id)),
     onCreateTask: (date) => dispatch(createTasksActions.createTask(date)) 
   };

@@ -118,7 +118,7 @@ export class TaskModalComponent extends React.Component<TaskModalComponentProps 
                                     onChange={this.handleTaskChanged}
                                     onBlur={this.handleTaskUpdated}
                                 />
-                                <span>Is Completed</span>
+                                <span>&#10003; &#9744; Completed</span>
                             </label>
                         </div>
                     </div>

@@ -13,6 +13,10 @@ export interface WeekDayPickerComponentDispatch {
 }
 
 export class WeekDayPickerComponent extends React.Component<WeekDayPickerComponentProps & WeekDayPickerComponentDispatch, {}> {    
+    constructor(props: WeekDayPickerComponentProps & WeekDayPickerComponentDispatch) {
+        super(props);
+    }
+    
     render() {
         return (
             <div className="weekday-picker">

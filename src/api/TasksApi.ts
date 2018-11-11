@@ -1,12 +1,21 @@
 import firebase from 'services/firebase';
 import { Task, TaskDictionary, TaskDTO, taskMapper } from 'models/task';
 import currentUser from 'services/currentUser';
+import dateUtils from 'utils/dateUtils';
+import { firestore } from 'firebase';
 
-const getTasks = (): Promise<TaskDictionary> => {
+const getWeekTasks = (date: Date): Promise<TaskDictionary> => {
     return new Promise(async function(resolve, reject) {
         try {
             let tasks: { [id: string]: Task } = {},
-            snapshot = await firebase.db().collection('tasks').where('uid', '==', currentUser.uid()).get();
+            start = firestore.Timestamp.fromDate(dateUtils.getStartOfWeek(date, 1)),
+            end = firestore.Timestamp.fromDate(dateUtils.getEndOfWeek(date, 1));
+            let snapshot = await firebase.db().collection('tasks')
+                .where('uid', '==', currentUser.uid())
+                .orderBy('date', 'desc')
+                .where('date', '>=', start)
+                .where('date', '<=', end)
+                .get();
             snapshot.docs.forEach(doc => {
                 tasks[doc.id] = { id: doc.id, ...doc.data() as TaskDTO };
             });
@@ -55,7 +64,7 @@ const deleteTask = (task: Task): Promise<void> => {
 }
 
 export default {
-    getTasks,
+    getWeekTasks,
     createTask,
     updateTask,
     deleteTask

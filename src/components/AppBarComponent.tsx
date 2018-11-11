@@ -5,14 +5,26 @@ import { WeekPickerComponent } from './WeekPickerComponent';
 import dateUtils from 'utils/dateUtils';
 
 export interface AppBarComponentProps {
-    user: firebase.UserInfo
+    user: firebase.UserInfo;
+    weekDate: Date;
 }
 
 export interface AppBarComponentDispatch {
-    logout: () => Promise<Action>
+    onLogout: () => Promise<Action>;
+    onWeekDateChange: (date: Date) => Promise<Action>;
 }
 
 export class AppBarComponent extends React.Component<AppBarComponentProps & AppBarComponentDispatch, StoreState> {
+    constructor(props: AppBarComponentProps & AppBarComponentDispatch) {
+        super(props);
+
+        this.handleWeekDateChange = this.handleWeekDateChange.bind(this);
+    }
+
+    handleWeekDateChange(date: Date) {
+        this.props.onWeekDateChange(date);
+    }
+    
     render() {
         return (
             <header className="appbar">
@@ -21,14 +33,14 @@ export class AppBarComponent extends React.Component<AppBarComponentProps & AppB
                     <span>{this.props.user.displayName}</span>
                 </div>
                 <WeekPickerComponent
-                        selectedStartDate={dateUtils.getStartOfWeek(new Date(), 1)}
-                        onSelectedStartDateChanged={() => {}}
+                        selectedStartDate={dateUtils.getStartOfWeek(this.props.weekDate, 1)}
+                        onSelectedStartDateChanged={this.handleWeekDateChange}
                 />
                 <button 
                     type="button"
                     title="Logout"
-                    onClick={this.props.logout}>
-                    |&rarr;
+                    onClick={this.props.onLogout}>
+                    Logout
                 </button>
             </header>
         );

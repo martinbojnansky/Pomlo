@@ -12,7 +12,8 @@ export function initialState(): StoreState
     return ({
         authorization: initialAuthorizationState(),
         tasks: {
-          tasks: {} as TaskDictionary
+          tasks: {} as TaskDictionary,
+          weekDate: new Date()
         }
     });
 };

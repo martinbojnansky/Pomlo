@@ -5,6 +5,7 @@ import * as openCloseTasksActions from 'actions/tasks/openCloseTasksActions';
 import * as changeTasksActions from 'actions/tasks/changeTasksActions';
 import * as createTasksActions from 'actions/tasks/createTasksActions';
 import * as updateTasksActions from 'actions/tasks/updateTasksActions';
+import * as changeTasksWeekDateActions from 'actions/tasks/changeTasksWeekDateActions';
 
 export enum ActionType {
     NOT_SPECIFIED = 'NOT_SPECIFIED',
@@ -22,6 +23,7 @@ export enum ActionType {
     TASKS_CREATE_TASK_FAILED = 'TASKS_CREATE_TASK_FAILED',
     TASKS_UPDATE_TASK_COMPLETED = 'TASKS_UPDATE_TASK_COMPLETED',
     TASKS_UPDATE_TASK_FAILED = 'TASKS_UPDATE_TASK_FAILED',
+    TASKS_WEEK_DATE_CHANGED = 'TASKS_WEEK_DATE_CHANGED'
 }
 
 export type Action = NotSpecifiedAction
@@ -39,6 +41,7 @@ export type Action = NotSpecifiedAction
 | createTasksActions.TasksCreateTaskFailed
 | updateTasksActions.TasksUpdateTaskCompleted
 | updateTasksActions.TasksUpdateTaskFailed
+| changeTasksWeekDateActions.TasksWeekDateChanged
 ;
 
 export interface NotSpecifiedAction {
